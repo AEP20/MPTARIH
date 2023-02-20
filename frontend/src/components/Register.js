@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { UseAuthContext } from '../hooks/UseAuthContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const Register = (data) => {
@@ -30,6 +30,7 @@ const Register = (data) => {
             setError(json.error);
         }
         if (response.ok){
+            await AsyncStorage.setItem('user', JSON.stringify(json));
             setError(null);
             dispatch({ type: 'LOGIN', payload: json });
             setLoading(false);

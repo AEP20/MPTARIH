@@ -6,16 +6,21 @@ import {
   Button,
   Pressable,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
-import COLORS from "../assets/colors/color";
+import Subjects from "../components/Subjects";
 import { useLogout } from "../components/Logout";
 import { UseAuthContext } from "../hooks/UseAuthContext";
-import { useNavigation } from "@react-navigation/native";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import COLORS from "../assets/colors/color";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-  const { logout } = useLogout();
+
   const { user } = UseAuthContext();
+  const { logout } = useLogout();
+  console.log("user", user);
 
   const handleLogout = () => {
     logout();
@@ -23,31 +28,71 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.Thema}
-        onPress={() =>
-          navigation.navigate("ThemaScreen", { themaName: "Konu1" })
-        }
-      >
-        <Text style={styles.themaText}>Thema 1</Text>
-      </TouchableOpacity>
+      {user && (
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            width: "100%",
+            height: 70,
+            paddingVertical: 10,
+            paddingHorizontal: 20,
+            display: "flex",
+            position: "relative",
+            borderBottomColor: "#e5e5e5",
+            borderBottomWidth: 2,
+          }}
+        >
+          <Pressable onPress={() => navigation.openDrawer()}>
+            <MaterialCommunityIcons
+              name="menu"
+              style={{
+                color: "black",
+                fontSize: 28,
+              }}
+            ></MaterialCommunityIcons>
+          </Pressable>
+        </View>
+      )}
 
-      <TouchableOpacity
-        style={styles.Thema}
-        onPress={() =>
-          navigation.navigate("ThemaScreen", { themaName: "Konu2" })
-        }
-      >
-        <Text style={styles.themaText}>Thema 2</Text>
-      </TouchableOpacity>
+      <ScrollView>
+        <Subjects
+          title="Tarih Bilimi ,İlk ve Orta Çağ'da Dünya"
+          themaName="Konu1"
+          colors={["#005495", "#015f9c"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          count="0"
+        />
 
-      <TouchableOpacity style={styles.Thema}>
-        <Text style={styles.themaText}>Thema 3</Text>
-      </TouchableOpacity>
+        <Subjects
+          title="İlk ve Orta Çağ'da Türk Dünyası"
+          themaName="Konu2"
+          colors={["#f15c97", "#de4e8a"]}
+          end={{ x: 1, y: 0 }}
+          start={{ x: 0, y: 1 }}
+          count="1"
+        />
 
-      <Pressable style={styles.logOut} onPress={handleLogout}>
-        <Text style={styles.logOutText}>Logout</Text>
-      </Pressable>
+        <Subjects
+          title="İslam Medeniyetinin Doğuşu"
+          themaName="Konu3"
+          colors={["rgba(141,151,243,1)", "rgba(110,123,251,1)"]}
+          start={{ x: 1, y: 1 }}
+          end={{ x: 0, y: 0 }}
+          count="2"
+        />
+
+        <Subjects
+          title="Türklerin İslamiyet'i Kabulü, İlk Türk İslam Devletleri "
+          themaName="Konu3"
+          count="2"
+          colors={["rgb(242, 112, 156)", "rgb(255, 148, 114)"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+        />
+      </ScrollView>
     </View>
   );
 };
@@ -55,39 +100,6 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "flex-start",
-  },
-  Thema: {
-    height: 50,
-    width: "80%",
-    backgroundColor: COLORS.primary,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 20,
-  },
-  themaText: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: COLORS.white,
-  },
-  logOut: {
-    position: "absolute",
-    bottom: 10,
-    height: 40,
-    width: "30%",
-    backgroundColor: COLORS.primary,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 20,
-  },
-  logOutText: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: COLORS.white,
   },
 });
 

@@ -24,13 +24,14 @@ export const AuthContextProvider = ({ children }) => {
     useEffect(() => {
         const getUser = async () => {
             const user = await AsyncStorage.getItem('user');
-            return user ? JSON.parse(user) : null;
+            if (user) {
+                dispatch({ type: 'LOGIN', payload: JSON.parse(user) });
+            }
         }
-        const user = getUser();
-        if (user) {
-            dispatch({ type: 'LOGIN', payload: user });
-        }
+        getUser();
     }, []);
+
+
     
     return (
         <AuthContext.Provider value={{...state,dispatch}}>

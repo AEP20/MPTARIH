@@ -31,6 +31,7 @@ const Login = (data) => {
         }
         if (response.ok){
             setError(null);
+            await AsyncStorage.setItem('user', JSON.stringify(json));
             dispatch({ type: 'LOGIN', payload: json });
             setLoading(false);            
         };

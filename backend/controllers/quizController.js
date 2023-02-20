@@ -67,28 +67,39 @@ const CounstofQuestions = async (req, res) => {
 };
 
 const solvedQuestions = async (req, res) => {
-    console.log("solvedQuestions !!!!")
+
+    const themaMap = {
+        "Konu1": 0,
+        "Konu2": 1,
+        "Konu3": 2,
+        "Konu4": 3,
+        "Konu5": 4,
+      };
+
     const { user_email, correctlyAnsweredIds } = req.body;
     try {
-        console.log("req.body :" + req.body)
-    
-        console.log("user_email :" + user_email)
-        console.log("correctlyAnsweredIds :" + correctlyAnsweredIds)
-
         const user = await User.findOne({ email: user_email });
-
-        console.log("user :" + user)
 
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
     
-        // Add the solved question IDs to the user's solvedQuestions array
-        user.solvedQuestions.push(...correctlyAnsweredIds);
-    
-        // Save the updated user document
-        const updatedUser = await user.save();
+        user.solvedQuestions.addToSet(...correctlyAnsweredIds);
         
+        const updatedUser = await user.save();
+
+        const numberOfQuestions = correctlyAnsweredIds.length;
+
+        const firstQuestion = await Question.findById(correctlyAnsweredIds[0]);
+        const thema = firstQuestion.thema;
+        
+        if (thema in themaMap) {
+            user.solvedThemas[themaMap[thema]] += numberOfQuestions;
+            console.log(thema);
+          }
+        
+        const updatedUser2 = await user.save();
+
         res.status(200).json({ message: 'Correctly answered questions added to user document.' });
         
     } catch (err) {
@@ -121,7 +132,87 @@ const fetchQuestionsOfQuiz = async (req, res) => {
     }
 }
 
+const countsOfSolved = async (req, res) => {
+    const { thema } = req.query;
+    console.log("thema", thema)
+    try{
+        const user = await User.findOne({ email: req.params.email });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.status(200).json({ solvedThemas: user.solvedThemas[thema] });
+    }catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+}
+
+const favoriteQuestion = async (req, res) => {
+    console.log("inside favoriteQuestion")
+    const { user_email, question_id } = req.body;
+    console.log("user_email", user_email)
+    console.log("question_id", question_id)
+    try {
+        const user = await User.findOne({ email: user_email });
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+    
+        user.favoriteQuestions.addToSet(question_id);
+        
+        const updatedUser = await user.save();
+
+        res.status(200).json({ message: 'Question added to favorites.' });
+        
+    }
+    catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+}
+
+const getFavoriteQuestions = async (req, res) => {
+    console.log("inside getFavoriteQuestions")
+    console.log("user_email :", req.params.email)
+    try {
+        const user = await User.findOne({ email: req.params.email });
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const favoriteQuestions = user.favoriteQuestions;
+        console.log("favoriteQuestions", favoriteQuestions)
+        const questions = await Question.find({ _id: { $in: favoriteQuestions } });
+        console.log("questions", questions)
+        res.status(200).json({ questions });
+    }
+    catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+}
+
+const deleteFavoriteQuestion = async (req, res) => {
+    console.log("inside deleteFavoriteQuestion")
+    console.log("user_email :", req.params.email)
+    console.log("question_id :", req.params.id)
+
+    try {
+        const user = await User.findOne({ email: req.params.email });
+        
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        user.favoriteQuestions.pull(req.params.id);
+        const updatedUser = await user.save();
+        res.status(200).json({ message: 'Question deleted from favorites.' });
+
+    }catch(error) 
+    {
+        res.status(400).json({ error: error.message });
+    }
+}
 
 
-module.exports = { addQuestion, getAllQuestions, deleteQuestion, CounstofQuestions, solvedQuestions , fetchQuestionsOfQuiz};
+module.exports = { addQuestion, getAllQuestions, deleteQuestion, CounstofQuestions, solvedQuestions , fetchQuestionsOfQuiz, countsOfSolved, favoriteQuestion, getFavoriteQuestions, deleteFavoriteQuestion};
 

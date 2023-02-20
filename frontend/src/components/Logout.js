@@ -5,9 +5,9 @@ import { UseAuthContext } from '../hooks/UseAuthContext';
 export const useLogout = () => {
     const { dispatch } = UseAuthContext();
 
-    const logout = () => {
+    const logout = async () => {
         try {
-            AsyncStorage.removeItem('user');
+            await AsyncStorage.removeItem('user');
         }
         catch (e) {
             console.log(e);
