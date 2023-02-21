@@ -6,12 +6,12 @@ const { requireAuth } = require('../middleware/requireAuth');
 router.post('/', addQuestion);
 router.get('/', getAllQuestions);
 router.delete('/:id', deleteQuestion);
+router.get('/count', CounstofQuestions);
 
 
 
 router.use(requireAuth);
 
-router.get('/count', CounstofQuestions);
 router.post('/completed', solvedQuestions);
 router.get('/:email/questions', fetchQuestionsOfQuiz)
 router.get('/:email/solved', countsOfSolved)

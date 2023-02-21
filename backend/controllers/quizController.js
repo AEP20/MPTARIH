@@ -134,7 +134,6 @@ const fetchQuestionsOfQuiz = async (req, res) => {
 
 const countsOfSolved = async (req, res) => {
     const { thema } = req.query;
-    console.log("thema", thema)
     try{
         const user = await User.findOne({ email: req.params.email });
         if (!user) {
@@ -147,10 +146,7 @@ const countsOfSolved = async (req, res) => {
 }
 
 const favoriteQuestion = async (req, res) => {
-    console.log("inside favoriteQuestion")
     const { user_email, question_id } = req.body;
-    console.log("user_email", user_email)
-    console.log("question_id", question_id)
     try {
         const user = await User.findOne({ email: user_email });
 
@@ -171,20 +167,20 @@ const favoriteQuestion = async (req, res) => {
 }
 
 const getFavoriteQuestions = async (req, res) => {
-    console.log("inside getFavoriteQuestions")
-    console.log("user_email :", req.params.email)
+    
     try {
         const user = await User.findOne({ email: req.params.email });
-
+        const { thema } = req.query;
+        console.log(thema)
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
 
         const favoriteQuestions = user.favoriteQuestions;
-        console.log("favoriteQuestions", favoriteQuestions)
-        const questions = await Question.find({ _id: { $in: favoriteQuestions } });
-        console.log("questions", questions)
-        res.status(200).json({ questions });
+        const questions = await Question.find({ _id: { $in: favoriteQuestions } }).sort({ createdAt: -1 });
+        const filteredQuestions = thema ? questions.filter(question => question.thema === thema) : questions;
+        res.status(200).json({ questions: filteredQuestions });
+        
     }
     catch (error) {
         res.status(400).json({ error: error.message });
@@ -192,10 +188,6 @@ const getFavoriteQuestions = async (req, res) => {
 }
 
 const deleteFavoriteQuestion = async (req, res) => {
-    console.log("inside deleteFavoriteQuestion")
-    console.log("user_email :", req.params.email)
-    console.log("question_id :", req.params.id)
-
     try {
         const user = await User.findOne({ email: req.params.email });
         
