@@ -101,7 +101,7 @@ function Subjects(data) {
               bottom: 0,
               left: 0,
               height: 5,
-              backgroundColor: "#060047",
+              backgroundColor: "green",
               width: `${progress}%`,
             }}
           ></View>

@@ -18,6 +18,7 @@ import { useLogout } from "./components/Logout";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import COLORS from "./assets/colors/color";
 import SavedQuestions from "./screens/SavedQuestions";
+import SavedCards from "./screens/SavedCards";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -50,6 +51,7 @@ function DrawerScreen() {
       <Drawer.Screen name="Ana Menü" component={HomeScreen} />
       <Drawer.Screen name="Hakkımızda" component={AboutScreen} />
       <Drawer.Screen name="Kaydedilen Sorular" component={SavedQuestions} />
+      <Drawer.Screen name="Kaydedilen Kartlar" component={SavedCards} />
 
     </Drawer.Navigator>
   );
