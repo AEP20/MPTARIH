@@ -28,7 +28,7 @@ function Subjects(data) {
     const fetchQuestions = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/api/miniQuiz/count",
+          "http://192.168.1.34:4000/api/miniQuiz/count",
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -49,7 +49,7 @@ function Subjects(data) {
     const fetchSolved = async () => {
       try {
         const res = await fetch(
-          `http://localhost:4000/api/miniQuiz/${user.email}/solved?thema=${data.count}`,
+          `http://192.168.1.34:4000/api/miniQuiz/${user.email}/solved?thema=${data.count}`,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,

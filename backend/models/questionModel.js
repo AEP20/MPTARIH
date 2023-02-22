@@ -30,6 +30,10 @@ const questionSchema = new Schema({
         type: String,
         required: true,
     },
+    isPremium :{
+        type: Boolean,
+        default : false 
+    }
 })
 
 const Question = mongoose.model("Question", questionSchema);

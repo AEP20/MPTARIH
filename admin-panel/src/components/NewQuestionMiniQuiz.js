@@ -53,7 +53,7 @@ function MiniQuiz() {
             thema,
         };
 
-        const res = await fetch ("http://localhost:4000/api/miniQuiz", {
+        const res = await fetch ("http://192.168.1.34:4000/api/miniQuiz", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

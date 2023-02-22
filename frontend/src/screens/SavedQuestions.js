@@ -30,7 +30,7 @@ function SavedQuestions() {
   const fetchFavoriteQuestions = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/miniQuiz/${user.email}/favorite?thema=${value}`,
+        `http://192.168.1.34:4000/api/miniQuiz/${user.email}/favorite?thema=${value}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -73,7 +73,7 @@ function SavedQuestions() {
 
     const handleDeleteFavorite = async (id) => {
         try {
-            const response = await fetch(`http://localhost:4000/api/miniQuiz/${user.email}/favorite/${id}`, {
+            const response = await fetch(`http://192.168.1.34:4000/api/miniQuiz/${user.email}/favorite/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

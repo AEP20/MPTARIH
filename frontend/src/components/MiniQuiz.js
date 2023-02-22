@@ -31,7 +31,7 @@ export default function MiniQuiz({ route }) {
     const fetchQuestions = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
+          `http://192.168.1.34:4000/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -71,7 +71,7 @@ export default function MiniQuiz({ route }) {
     console.log( "email !!! " + user.email)
     try {
         const response = await fetch(
-            `http://localhost:4000/api/miniQuiz/${user.email}/favorite/${id}`,
+            `http://192.168.1.34:4000/api/miniQuiz/${user.email}/favorite/${id}`,
             {
                 method: "POST",
                 headers: {
@@ -103,7 +103,7 @@ export default function MiniQuiz({ route }) {
   const correctlyAnswered = async (email, correctlyAnsweredIds) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/miniQuiz/completed`,
+        `http://192.168.1.34:4000/api/miniQuiz/completed`,
         {
           method: "POST",
           headers: {
@@ -182,7 +182,7 @@ export default function MiniQuiz({ route }) {
   const newQuiz = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
+        `http://192.168.1.34:4000/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
