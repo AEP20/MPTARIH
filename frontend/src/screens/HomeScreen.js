@@ -86,16 +86,118 @@ const HomeScreen = () => {
 
         <Subjects
           title="Türklerin İslamiyet'i Kabulü, İlk Türk İslam Devletleri "
-          themaName="Konu3"
-          count="2"
+          themaName="Konu4"
+          count="3"
           colors={["rgb(242, 112, 156)", "rgb(255, 148, 114)"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="Selçuklu Türkiyesi"
+          themaName="Konu5"
+          count="4"
+          colors={["#A555EC", "#A833CB"]}
+          end={{ x: 0, y: 0 }}
+          start={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="Beylikten Devlete Osmanlı Siyaseti"
+          themaName="Konu6"
+          count="5"
+          colors={["#071A52", "#08085E"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="Dünya Gücü Osmanlı"
+          themaName="Konu7"
+          count="6"
+          colors={["#FF6464", "#FF7F7F"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="Osmanlı Medeniyeti"
+          themaName="Konu8"
+          count="7"
+          colors={["#2F89FC", "#82ACFF"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="XVII. yüzyıl Osmanlı Siyaseti"
+          themaName="Konu9"
+          count="8"
+          colors={["#C70A80", "#BD3587"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="Avrupa Tarihi"
+          themaName="Konu10"
+          count="9"
+          colors={["#007965", "#00AF91"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="XVIII. yüzyıl Osmanlı Siyaseti"
+          themaName="Konu11"
+          count="10"
+          colors={["#153E90", "#0E49B5"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="XIX. yüzyıl Osmanlı Siyaseti"
+          themaName="Konu12"
+          count="11"
+          colors={["#3B064D", "#8105D8"]}
+          end={{ x: 0, y: 0 }}
+          start={{ x: 1, y: 0 }}
         />
       </ScrollView>
     </View>
   );
 };
+
+// { label: "Tümü", value: "" },
+//     { label: "Tarih Bilimi ,İlk ve Orta Çağ'da Dünya", value: "Konu1" },
+//     { label: "İlk ve Orta Çağ'da Türk Dünyası", value: "Konu2" },
+//     { label: "İslam Medeniyetinin Doğuşu", value: "Konu3" },
+//     {
+//       label: "Türklerin İslamiyet'i Kabulü, İlk Türk İslam Devletleri",
+//       value: "Konu4",
+//     },
+//     { label: "Selçuklu Türkiyesi", value: "Konu5" },
+//     { label: "Beylikten Devlete Osmanlı Siyaseti", value: "Konu6" },
+//     { label: "Dünya Gücü Osmanlı", value: "Konu7" },
+//     { label: "Osmanlı Medeniyeti", value: "Konu8" },
+//     { label: "XVII. yüzyıl Osmanlı Siyaseti" },
+//     { label: "Avrupa Tarihi", value: "Konu10" },
+//     { label: "XVIII. yüzyıl Osmanlı Siyaseti", value: "Konu11" },
+//     { label: "XIX. yüzyıl Osmanlı Siyaseti", value: "Konu12" },
+//     {
+//       label: "20. yüzyıl Başlarında Osmanlı Devleti ve Dünya",
+//       value: "Konu13",
+//     },
+//     { label: "Milli Mücadele", value: "Konu14" },
+//     {
+//       label: "Türk İnkılabı ve Atatürk Dönemi Dış Politikası",
+//       value: "Konu15",
+//     },
+//     {
+//       label: "İkinci Dünya Savaşında ve Sonrasında; Türkiye ve Dünya",
+//       value: "Konu16",
+//     },
 
 const styles = StyleSheet.create({
   container: {

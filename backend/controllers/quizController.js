@@ -110,6 +110,14 @@ const solvedQuestions = async (req, res) => {
     Konu3: 2,
     Konu4: 3,
     Konu5: 4,
+    konu6: 5,
+    konu7: 6,
+    konu8: 7,
+    konu9: 8,
+    konu10: 9,
+    konu11: 10,
+    konu12: 11,
+    konu13: 12,
   };
 
   const { user_email, correctlyAnsweredIds } = req.body;

@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Modal,
   Animated,
+  ActivityIndicator
 } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import COLORS from "../assets/colors/color";
@@ -27,42 +28,44 @@ export default function MiniQuiz({ route }) {
 
   const { user } = UseAuthContext();
 
+  const fetchQuestions = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:4000/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      const questions = data.questions.map((question) => {
+        const options = [
+          question.answerA,
+          question.answerB,
+          question.answerC,
+          question.answerD,
+        ];
+        const correctOption =
+          options[question.correctAnswer.charCodeAt(0) - 65];
+        return {
+          id: question._id,
+          question: question.question,
+          options: options,
+          correct_option: correctOption,
+          thema: question.thema,
+        };
+      });
+      setAllQuestions(questions);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchQuestions = async () => {
-      try {
-        const response = await fetch(
-          `http://192.168.1.34:4000/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
-          {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-            },
-          }
-        );
-        const data = await response.json();
-        const questions = data.questions.map((question) => {
-          const options = [
-            question.answerA,
-            question.answerB,
-            question.answerC,
-            question.answerD,
-          ];
-          const correctOption =
-            options[question.correctAnswer.charCodeAt(0) - 65];
-          return {
-            id: question._id,
-            question: question.question,
-            options: options,
-            correct_option: correctOption,
-            thema: question.thema,
-          };
-        });
-        setAllQuestions(questions);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     if (user) {
-      fetchQuestions();
+      setLoading(true);
+      fetchQuestions().then(() => setLoading(false));
     }
   }, [user]);
 
@@ -71,7 +74,7 @@ export default function MiniQuiz({ route }) {
     console.log( "email !!! " + user.email)
     try {
         const response = await fetch(
-            `http://192.168.1.34:4000/api/miniQuiz/${user.email}/favorite/${id}`,
+            `http://localhost:4000/api/miniQuiz/${user.email}/favorite/${id}`,
             {
                 method: "POST",
                 headers: {
@@ -103,7 +106,7 @@ export default function MiniQuiz({ route }) {
   const correctlyAnswered = async (email, correctlyAnsweredIds) => {
     try {
       const response = await fetch(
-        `http://192.168.1.34:4000/api/miniQuiz/completed`,
+        `http://localhost:4000/api/miniQuiz/completed`,
         {
           method: "POST",
           headers: {
@@ -131,6 +134,7 @@ export default function MiniQuiz({ route }) {
   const [score, setScore] = useState(0);
   const [showNextButton, setShowNextButton] = useState(false);
   const [showScoreModal, setShowScoreModal] = useState(false);
+  const [loading , setLoading] = useState(false);
 
   const validateAnswer = (selectedOption) => {
     let correct_option = allQuestions[currentQuestionIndex]["correct_option"];
@@ -182,7 +186,7 @@ export default function MiniQuiz({ route }) {
   const newQuiz = async () => {
     try {
       const response = await fetch(
-        `http://192.168.1.34:4000/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
+        `http://localhost:4000/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -225,6 +229,20 @@ export default function MiniQuiz({ route }) {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const LoadingScreen = () => {
+    return (
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <ActivityIndicator size="large" color={COLORS.primary} />
+      </View>
+    );
   };
 
   const renderQuestion = () => {

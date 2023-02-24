@@ -53,7 +53,7 @@ function MiniQuiz() {
             thema,
         };
 
-        const res = await fetch ("http://192.168.1.34:4000/api/miniQuiz", {
+        const res = await fetch ("http://localhost:4000/api/miniQuiz", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -131,12 +131,7 @@ function MiniQuiz() {
                     Konu:
                     <select value={thema} onChange={(e) => setThema(e.target.value)}>
                         <option value="">Seçiniz</option>
-                        <option value="Konu1">Konu1</option>
-                        <option value="Konu2">Konu2</option>
-                        <option value="Konu3">Konu3</option>
-                        <option value="Konu4">Konu4</option>
-                        <option value="Konu5">Konu5</option>
-                        <option value="Konu6">Konu6</option>
+                        <option value="Konu12">Konu12</option>
                     </select>
                 </label>
 

@@ -28,7 +28,7 @@ function Subjects(data) {
     const fetchQuestions = async () => {
       try {
         const response = await fetch(
-          "http://192.168.1.34:4000/api/miniQuiz/count",
+          "http://localhost:4000/api/miniQuiz/count",
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -49,7 +49,7 @@ function Subjects(data) {
     const fetchSolved = async () => {
       try {
         const res = await fetch(
-          `http://192.168.1.34:4000/api/miniQuiz/${user.email}/solved?thema=${data.count}`,
+          `http://localhost:4000/api/miniQuiz/${user.email}/solved?thema=${data.count}`,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -194,14 +194,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "flex-start",
+    paddingHorizontal: 10,
   },
   Thema: {
-    height: 150,
-    width: "92%",
+    height: 110,
+    width: "100%",
     borderRadius: 5,
-    marginTop: 15,
+    marginTop: 10,
     position: "relative",
-    
+
   },
   touchable: {
     height: "100%",

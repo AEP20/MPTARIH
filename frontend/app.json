@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "frontend",
-    "slug": "frontend",
+    "name": "MPTarih",
+    "slug": "mp-tarih",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -14,7 +14,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.example.myapp"
+      "bundleIdentifier": "com.MP.Tarih"
     },
     "build": {
       "development-simulator": {
@@ -26,8 +26,7 @@
       }
     },
     "android": {
-
-      "package": "com.example.myapp"
+      "package": "com.MP.Tarih"
     },
 
     "plugins": [

@@ -29,7 +29,7 @@ function FetchMiniQuiz() {
   };
 
   const handleIsPremiumChange = (id, value) => {
-    fetch(`http://192.168.1.34:4000/api/miniQuiz/update/${id}`, {
+    fetch(`http://localhost:4000/api/miniQuiz/update/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ function FetchMiniQuiz() {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `http://192.168.1.34:4000/api/miniQuiz/${id}`,
+        `http://localhost:4000/api/miniQuiz/${id}`,
         {
           method: "DELETE",
         }
@@ -84,7 +84,7 @@ function FetchMiniQuiz() {
     const fetchQuestions = async () => {
       try {
         const response = await fetch(
-          `http://192.168.1.34:4000/api/miniQuiz?thema=${thema}`
+          `http://localhost:4000/api/miniQuiz?thema=${thema}`
         );
         const data = await response.json();
         setQuestions(data.questions);

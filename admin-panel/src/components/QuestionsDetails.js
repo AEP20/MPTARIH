@@ -9,7 +9,7 @@ function QuestionsDetails() {
   const fetchQuestions = async () => {
     try {
       const response = await fetch(
-        "http://192.168.1.34:4000/api/miniQuiz/count"
+        "http://localhost:4000/api/miniQuiz/count"
       );
       const data = await response.json();
 
@@ -23,7 +23,7 @@ function QuestionsDetails() {
   const freeAndPremiumQuestions = async () => {
     try {
       const response = await fetch(
-        "http://192.168.1.34:4000/api/miniQuiz/detailedCount"
+        "http://localhost:4000/api/miniQuiz/detailedCount"
       );
       const data = await response.json();
       setPremium(data.premiumQuestions);
