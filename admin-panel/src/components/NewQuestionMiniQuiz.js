@@ -131,7 +131,7 @@ function MiniQuiz() {
                     Konu:
                     <select value={thema} onChange={(e) => setThema(e.target.value)}>
                         <option value="">Seçiniz</option>
-                        <option value="Konu12">Konu12</option>
+                        <option value="Konu16">Konu16</option>
                     </select>
                 </label>
 

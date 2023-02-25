@@ -19,6 +19,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import COLORS from "./assets/colors/color";
 import SavedQuestions from "./screens/SavedQuestions";
 import SavedCards from "./screens/SavedCards";
+import Settings from "./screens/Settings";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -52,7 +53,7 @@ function DrawerScreen() {
       <Drawer.Screen name="Hakkımızda" component={AboutScreen} />
       <Drawer.Screen name="Kaydedilen Sorular" component={SavedQuestions} />
       <Drawer.Screen name="Kaydedilen Kartlar" component={SavedCards} />
-
+      <Drawer.Screen name="Ayarlar" component={Settings} />
     </Drawer.Navigator>
   );
 }
@@ -67,22 +68,46 @@ function DrawerContent(props) {
   };
 
   return (
-    <View style={{ flex: 1, paddingTop: 0}}>
+    <View style={{ flex: 1, paddingTop: 0 }}>
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerHeader}>
           <Text style={styles.drawerHeaderText}>{user.email}</Text>
+          <Pressable style={styles.logOut} onPress={handleLogout}>
+            <MaterialCommunityIcons
+              name="logout"
+              style={{
+                color: COLORS.black75,
+                fontSize: 26,
+              }}
+            />
+          </Pressable>
         </View>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
-      <Pressable style={styles.logOut} onPress={handleLogout}>
-        <MaterialCommunityIcons
-          name="logout"
+
+      <View
+        style={{
+          position: "absolute",
+          left: 6,
+          bottom: 20,
+          backgroundColor: COLORS.white,
+          paddingVertical: 10,
+          paddingHorizontal: 15,
+        }}
+      >
+        <Text
           style={{
             color: COLORS.black75,
-            fontSize: 28,
+            fontSize: 15,
+            lineHeight: 23,
           }}
-        />
-      </Pressable>
+        >
+          <Text style={{ fontWeight: "bold" }}>İçerik Yazarı:</Text> Mehmet
+          Parmaksız{"\n"}
+          <Text style={{ fontWeight: "bold" }}>Geliştirici:</Text> Ahmet Emre
+          Parmaksız
+        </Text>
+      </View>
     </View>
   );
 }
@@ -98,17 +123,8 @@ function AuthScreen() {
 
 const styles = StyleSheet.create({
   logOut: {
-    position: "absolute",
-    bottom: 0,
-    width: "100%",
-    height: 70,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    alignItems: "center",
     backgroundColor: COLORS.white,
+    paddingBottom: 5,
   },
   drawerHeader: {
     backgroundColor: "#fff",
@@ -117,11 +133,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderBottomColor: "#e5e5e5",
     borderBottomWidth: 2,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
   },
   drawerHeaderText: {
     fontSize: 14,
     fontWeight: "bold",
     color: COLORS.black75,
   },
-
 });

@@ -21,6 +21,7 @@ function FetchMiniQuiz() {
     "Konu13",
     "Konu14",
     "Konu15",
+    "Konu16",
   ];
 
   const handleSelect = (value) => {
@@ -143,6 +144,7 @@ function FetchMiniQuiz() {
               />
               Free
             </label>
+            
           </div>
         ))}
       </div>

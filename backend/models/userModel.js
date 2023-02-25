@@ -19,12 +19,12 @@ const userSchema = new Schema({
   },
   solvedThemas: {
     type: [Number],
-    default: [0, 0, 0, 0] // default value for the solvedThemas array
+    default: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // default value for the solvedThemas array
   },
   favoriteQuestions: {
     type: Array,
     default: [],
-    },
+  },
 });
 
 userSchema.statics.signup = async function (email, password) {

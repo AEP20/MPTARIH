@@ -194,13 +194,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "flex-start",
-    paddingHorizontal: 10,
+    paddingHorizontal: 8,
+    paddingVertical:1,
+    marginTop: 5,
   },
   Thema: {
     height: 110,
     width: "100%",
     borderRadius: 5,
-    marginTop: 10,
     position: "relative",
 
   },

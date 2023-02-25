@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,7 +9,6 @@ import {
   ScrollView,
 } from "react-native";
 import Subjects from "../components/Subjects";
-import { useLogout } from "../components/Logout";
 import { UseAuthContext } from "../hooks/UseAuthContext";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import COLORS from "../assets/colors/color";
@@ -17,13 +16,13 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const scrollViewRef = useRef(null);
 
   const { user } = UseAuthContext();
-  const { logout } = useLogout();
   console.log("user", user);
 
-  const handleLogout = () => {
-    logout();
+  const handleScrollToBottom = () => {
+    scrollViewRef.current?.scrollToEnd({ animated: true });
   };
 
   return (
@@ -48,15 +47,26 @@ const HomeScreen = () => {
             <MaterialCommunityIcons
               name="menu"
               style={{
-                color: "black",
+                color: COLORS.black,
                 fontSize: 28,
               }}
             ></MaterialCommunityIcons>
           </Pressable>
+
+          <TouchableOpacity
+            style={{ position: "absolute", top: 27, right: 25 }}
+            onPress={handleScrollToBottom}
+          >
+            <MaterialCommunityIcons
+              name="arrow-down"
+              size={28}
+              color={COLORS.black}
+            />
+          </TouchableOpacity>
         </View>
       )}
 
-      <ScrollView>
+      <ScrollView ref={scrollViewRef} >
         <Subjects
           title="Tarih Bilimi ,İlk ve Orta Çağ'da Dünya"
           themaName="Konu1"
@@ -78,7 +88,7 @@ const HomeScreen = () => {
         <Subjects
           title="İslam Medeniyetinin Doğuşu"
           themaName="Konu3"
-          colors={["rgba(141,151,243,1)", "rgba(110,123,251,1)"]}
+          colors={["#8D97F3", "#6E7BFB"]}
           start={{ x: 1, y: 1 }}
           end={{ x: 0, y: 0 }}
           count="2"
@@ -88,9 +98,9 @@ const HomeScreen = () => {
           title="Türklerin İslamiyet'i Kabulü, İlk Türk İslam Devletleri "
           themaName="Konu4"
           count="3"
-          colors={["rgb(242, 112, 156)", "rgb(255, 148, 114)"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
+          colors={["#F2709C", "#FF8A66"]}
+          end={{ x: 0, y: 0 }}
+          start={{ x: 1, y: 0 }}
         />
 
         <Subjects
@@ -160,44 +170,59 @@ const HomeScreen = () => {
           title="XIX. yüzyıl Osmanlı Siyaseti"
           themaName="Konu12"
           count="11"
-          colors={["#3B064D", "#8105D8"]}
+          colors={["#7A25B3", "#8105D8"]}
           end={{ x: 0, y: 0 }}
           start={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="20. yüzyıl Başlarında Osmanlı Devleti ve Dünya"
+          themaName="Konu13"
+          count="12"
+          colors={["#FF1F5A", "#FF4174"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="Milli Mücadele"
+          themaName="Konu14"
+          count="13"
+          colors={["#56BBF1", "#4D77FF"]}
+          end={{ x: 0, y: 0 }}
+          start={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="Türk İnkılabı ve Atatürk Dönemi Dış Politikası"
+          themaName="Konu15"
+          count="14"
+          colors={["#03506F", "#276678"]}
+          end={{ x: 0, y: 0 }}
+          start={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="İkinci Dünya Savaşında ve Sonrasında; Türkiye ve Dünya"
+          themaName="Konu16"
+          count="15"
+          colors={["#D75281", "#B93160"]}
+          end={{ x: 0, y: 0 }}
+          start={{ x: 1, y: 0 }}
+        />
+
+        <Subjects
+          title="Karışık Deneme"
+          themaName="Konu16"
+          count="15"
+          colors={["#F2921D", "#F49D1A"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
         />
       </ScrollView>
     </View>
   );
 };
-
-// { label: "Tümü", value: "" },
-//     { label: "Tarih Bilimi ,İlk ve Orta Çağ'da Dünya", value: "Konu1" },
-//     { label: "İlk ve Orta Çağ'da Türk Dünyası", value: "Konu2" },
-//     { label: "İslam Medeniyetinin Doğuşu", value: "Konu3" },
-//     {
-//       label: "Türklerin İslamiyet'i Kabulü, İlk Türk İslam Devletleri",
-//       value: "Konu4",
-//     },
-//     { label: "Selçuklu Türkiyesi", value: "Konu5" },
-//     { label: "Beylikten Devlete Osmanlı Siyaseti", value: "Konu6" },
-//     { label: "Dünya Gücü Osmanlı", value: "Konu7" },
-//     { label: "Osmanlı Medeniyeti", value: "Konu8" },
-//     { label: "XVII. yüzyıl Osmanlı Siyaseti" },
-//     { label: "Avrupa Tarihi", value: "Konu10" },
-//     { label: "XVIII. yüzyıl Osmanlı Siyaseti", value: "Konu11" },
-//     { label: "XIX. yüzyıl Osmanlı Siyaseti", value: "Konu12" },
-//     {
-//       label: "20. yüzyıl Başlarında Osmanlı Devleti ve Dünya",
-//       value: "Konu13",
-//     },
-//     { label: "Milli Mücadele", value: "Konu14" },
-//     {
-//       label: "Türk İnkılabı ve Atatürk Dönemi Dış Politikası",
-//       value: "Konu15",
-//     },
-//     {
-//       label: "İkinci Dünya Savaşında ve Sonrasında; Türkiye ve Dünya",
-//       value: "Konu16",
-//     },
 
 const styles = StyleSheet.create({
   container: {

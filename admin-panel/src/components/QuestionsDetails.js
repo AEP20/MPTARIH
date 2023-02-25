@@ -40,6 +40,7 @@ function QuestionsDetails() {
     freeAndPremiumQuestions();
   }, []);
 
+
   return (
     <table>
       <thead>
@@ -59,6 +60,12 @@ function QuestionsDetails() {
             <td>{premium.find((t) => t._id === theme._id)?.count || 0}</td>
           </tr>
         ))}
+        <tr>
+            <td>Toplam</td>
+            <td style ={{fontWeight: "bold"}}>{count.reduce((total, theme) => total + theme.count, 0)}</td>
+            <td style ={{fontWeight: "bold"}}>{free.reduce((total, theme) => total + theme.count, 0)}</td>
+            <td style ={{fontWeight: "bold"}}>{premium.reduce((total, theme) => total + theme.count, 0)}</td>
+        </tr>
       </tbody>
     </table>
   );
