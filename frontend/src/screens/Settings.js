@@ -5,27 +5,68 @@ import {
   Pressable,
   StyleSheet,
   TouchableOpacity,
+  Linking,
+  Platform,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import COLORS from "../assets/colors/color";
 import { MaterialIcons } from "@expo/vector-icons";
 import { UseAuthContext } from "../hooks/UseAuthContext";
+import * as Sharing from "expo-sharing";
+import { Share } from "expo";
 
 function Settings() {
   const navigation = useNavigation();
   const { user } = UseAuthContext();
 
   const handleHelpPress = () => {
-    // Handle Help/Support button press
+    Linking.openURL("mailto:ahmetemreparmaksiz@gmail.com?subject=Help/Support");
   };
 
-  const handleInvitePress = () => {
-    // Handle Invite Your Friends button press
+  const handleInvitePress = async () => {
+    try {
+      const result = await Share.share({
+        message: "Check out this cool app I found! https://example.com",
+      });
+
+      if (result.action === Share.sharedAction) {
+        console.log("Invitation sent successfully");
+      } else {
+        console.log("Invitation canceled");
+      }
+    } catch (error) {
+      console.log("Error sharing:", error);
+    }
   };
 
   const handleFeedbackPress = () => {
-    // Handle Give Us Feedback button press
+    const handleFeedbackPress = () => {
+      const iOSStoreUrl = `itms-apps://itunes.apple.com/us/app/your-app-id`;
+
+      if (Platform.OS === "ios") {
+        Linking.openURL(iOSStoreUrl);
+      }
+
+      if (Platform.OS === "android") {
+        Linking.openURL(androidStoreUrl);
+      }
+    };
+  };
+
+  const handleShare = async () => {
+    try {
+      const result = await Sharing.shareAsync(
+        "https://expo.io/@sahilsharma/miniQuiz"
+      );
+      if (result.action === Sharing.sharedAction) {
+        console.log("başarılı");
+      } else if (result.action === Sharing.dismissedAction) {
+        console.log("başarısız");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -61,9 +102,21 @@ function Settings() {
           ></MaterialCommunityIcons>
         </Pressable>
         {user && (
-          <View style={{ alignItems: "center", marginBottom: 25 , position:"absolute", right:30, top:30}}>
+          <View
+            style={{
+              alignItems: "center",
+              marginBottom: 25,
+              position: "absolute",
+              right: 30,
+              top: 30,
+            }}
+          >
             <Text
-              style={{ fontSize: 16, color: COLORS.black75, fontWeight: "bold" }}
+              style={{
+                fontSize: 16,
+                color: COLORS.black75,
+                fontWeight: "bold",
+              }}
             >
               {user.email}
             </Text>
@@ -72,8 +125,6 @@ function Settings() {
       </View>
 
       <View style={styles.container}>
-        
-
         <TouchableOpacity style={styles.button} onPress={handleHelpPress}>
           <Text style={styles.buttonText}>
             Yazarla / Geliştiriciyle İletişime Geç
@@ -88,7 +139,7 @@ function Settings() {
           <Text style={styles.buttonText}>Geri Bildirimde Bulunun</Text>
           <MaterialIcons name="feedback" size={24} color="#333" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleFeedbackPress}>
+        <TouchableOpacity style={styles.button} onPress={handleShare}>
           <Text style={styles.buttonText}>Paylaş</Text>
           <MaterialIcons name="share" size={24} color="#333" />
         </TouchableOpacity>

@@ -20,6 +20,7 @@ import COLORS from "./assets/colors/color";
 import SavedQuestions from "./screens/SavedQuestions";
 import SavedCards from "./screens/SavedCards";
 import Settings from "./screens/Settings";
+import { useNavigation } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -30,7 +31,8 @@ export default function Main() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {user ? (
+        {user
+        ? (
           <Stack.Screen name="DrawerScreen" component={DrawerScreen} />
         ) : (
           <Stack.Screen name="AuthScreen" component={AuthScreen} />

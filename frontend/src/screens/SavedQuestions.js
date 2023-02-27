@@ -59,7 +59,7 @@ function SavedQuestions() {
   const fetchFavoriteQuestions = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/miniQuiz/${user.email}/favorite?thema=${value}`,
+        `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/favorite?thema=${value}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -141,7 +141,7 @@ function SavedQuestions() {
   const handleDeleteFavorite = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/miniQuiz/${user.email}/favorite/${id}`,
+        `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/favorite/${id}`,
         {
           method: "DELETE",
           headers: {

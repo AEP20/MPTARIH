@@ -29,9 +29,12 @@ export default function MiniQuiz({ route }) {
   const { user } = UseAuthContext();
 
   const fetchQuestions = async () => {
+    console.log("user.email: " + user.email);
+    console.log("themaName: " + themaName)
+    console.log(`https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/questions?thema=${themaName}`)
     try {
       const response = await fetch(
-        `http://localhost:4000/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
+        `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -74,7 +77,7 @@ export default function MiniQuiz({ route }) {
     console.log( "email !!! " + user.email)
     try {
         const response = await fetch(
-            `http://localhost:4000/api/miniQuiz/${user.email}/favorite/${id}`,
+            `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/favorite/${id}`,
             {
                 method: "POST",
                 headers: {
@@ -106,7 +109,7 @@ export default function MiniQuiz({ route }) {
   const correctlyAnswered = async (email, correctlyAnsweredIds) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/miniQuiz/completed`,
+        `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/completed`,
         {
           method: "POST",
           headers: {
@@ -184,9 +187,11 @@ export default function MiniQuiz({ route }) {
   };
 
   const newQuiz = async () => {
+    console.log("user.email", user.email)
+    console.log("themaName", themaName)
     try {
       const response = await fetch(
-        `http://localhost:4000/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
+        `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

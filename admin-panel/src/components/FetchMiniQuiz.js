@@ -30,7 +30,7 @@ function FetchMiniQuiz() {
   };
 
   const handleIsPremiumChange = (id, value) => {
-    fetch(`http://localhost:4000/api/miniQuiz/update/${id}`, {
+    fetch(`https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/update/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ function FetchMiniQuiz() {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/miniQuiz/${id}`,
+        `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${id}`,
         {
           method: "DELETE",
         }
@@ -85,7 +85,7 @@ function FetchMiniQuiz() {
     const fetchQuestions = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/miniQuiz?thema=${thema}`
+          `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz?thema=${thema}`
         );
         const data = await response.json();
         setQuestions(data.questions);

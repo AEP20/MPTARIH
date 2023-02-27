@@ -26,7 +26,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} >
       {user && (
         <View
           style={{
@@ -66,7 +66,7 @@ const HomeScreen = () => {
         </View>
       )}
 
-      <ScrollView ref={scrollViewRef} >
+      <ScrollView ref={scrollViewRef} showsVerticalScrollIndicator={false}>
         <Subjects
           title="Tarih Bilimi ,İlk ve Orta Çağ'da Dünya"
           themaName="Konu1"
@@ -88,7 +88,7 @@ const HomeScreen = () => {
         <Subjects
           title="İslam Medeniyetinin Doğuşu"
           themaName="Konu3"
-          colors={["#8D97F3", "#6E7BFB"]}
+          colors={["#2C7C81", "#205E61"]}
           start={{ x: 1, y: 1 }}
           end={{ x: 0, y: 0 }}
           count="2"
@@ -98,7 +98,7 @@ const HomeScreen = () => {
           title="Türklerin İslamiyet'i Kabulü, İlk Türk İslam Devletleri "
           themaName="Konu4"
           count="3"
-          colors={["#F2709C", "#FF8A66"]}
+          colors={["#FF6565", "#FF4A4A"]}
           end={{ x: 0, y: 0 }}
           start={{ x: 1, y: 0 }}
         />
@@ -125,7 +125,7 @@ const HomeScreen = () => {
           title="Dünya Gücü Osmanlı"
           themaName="Konu7"
           count="6"
-          colors={["#FF6464", "#FF7F7F"]}
+          colors={["#2F89FC", "#82ACFF"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
         />
@@ -134,7 +134,7 @@ const HomeScreen = () => {
           title="Osmanlı Medeniyeti"
           themaName="Konu8"
           count="7"
-          colors={["#2F89FC", "#82ACFF"]}
+          colors={["#3C2A21", "#573E32"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
         />
@@ -198,12 +198,12 @@ const HomeScreen = () => {
           themaName="Konu15"
           count="14"
           colors={["#03506F", "#276678"]}
-          end={{ x: 0, y: 0 }}
-          start={{ x: 1, y: 0 }}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
         />
 
         <Subjects
-          title="İkinci Dünya Savaşında ve Sonrasında; Türkiye ve Dünya"
+          title="İkinci Dünya Savaşında ve Sonrasında , Türkiye ve Dünya"
           themaName="Konu16"
           count="15"
           colors={["#D75281", "#B93160"]}

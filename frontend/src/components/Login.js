@@ -15,7 +15,7 @@ const Login = (data) => {
         setLoading(true);
         setError(null);
 
-        const response = await fetch('http://localhost:4000/api/user/login', {
+        const response = await fetch('https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/user/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
