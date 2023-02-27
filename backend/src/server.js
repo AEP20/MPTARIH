@@ -4,32 +4,40 @@ const cors = require("cors");
 require("dotenv").config();
 const userRoutes = require("./routes/user");
 const quizRoutes = require("./routes/quiz");
+const functions = require("firebase-functions");
+
+const PORT = 4000;
+const MONGO_URI= "mongodb+srv://ahmet_emre:emre244c@mpykstarih.5vsodvd.mongodb.net/?retryWrites=true&w=majority"
+
+
 
 
 mongoose.set('strictQuery', true);
 
-//express js
 const app = express();
 
-//middleware
 app.use(express.json());
 app.use(cors());
 
-//routes
-app.use("/api/user", userRoutes)
-app.use("/api/miniQuiz", quizRoutes)
+app.use("/user", userRoutes)
+app.use("/miniQuiz", quizRoutes)
+
+app.get("/", (req, res) => {
+    res.send("hello world");
+});
 
 
 
-// connect to db , if can not connect, throw error else log success
 mongoose
-    .connect(process.env.MONGO_URI, {
+    .connect(MONGO_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
     .then(() => 
-    app.listen(process.env.PORT, () => {
-        console.log(`connected to db, server is running on port ${process.env.PORT}`);
+    app.listen(PORT, () => {
+        console.log(`connected to db, server is running on port ${PORT}`);
       })  
     )
     .catch((err) => console.log(err));
+
+exports.api= functions.https.onRequest(app);

@@ -27,7 +27,6 @@ const getAllQuestions = async (req, res) => {
     const { thema } = req.query;
     console.log(thema);
     const query = thema ? { thema } : {};
-    //get all question by filter as thema
     const questions = await Question.find(query);
     res.status(200).json({ questions });
   } catch (error) {

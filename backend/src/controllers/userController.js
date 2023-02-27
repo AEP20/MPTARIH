@@ -1,13 +1,13 @@
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
+const JWT_SECRET = "1j2bn3kj1b21yvu2g412b34j1h2v3b12";
 
 
 const createToken = (_id) => {
-    return jwt.sign({ _id }, process.env.JWT_SECRET, {expiresIn: "3d"})
+    return jwt.sign({ _id }, JWT_SECRET, {expiresIn: "3d"})
 };
 
 
-//login user
 const loginUser = async (req, res) => {
     console.log("loginUser")
     const { email, password} = req.body;
@@ -21,7 +21,6 @@ const loginUser = async (req, res) => {
     }
 }
 
-//signup user
 const signupUser = async (req, res) => {
     const { email, password} = req.body;
     try {

@@ -19,7 +19,7 @@ const userSchema = new Schema({
   },
   solvedThemas: {
     type: [Number],
-    default: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // default value for the solvedThemas array
+    default: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
   },
   favoriteQuestions: {
     type: Array,
