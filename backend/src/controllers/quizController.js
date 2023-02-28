@@ -49,18 +49,13 @@ const deleteQuestion = async (req, res) => {
 
 const CounstofQuestions = async (req, res) => {
   try {
-    const questionCounts = await Question.aggregate([
-      {
-        $group: {
-          _id: "$thema",
-          count: { $sum: 1 },
-        },
-      },
-      {
-        $sort: { count: -1 },
-      },
+    const counts = await Question.aggregate([
+      { $group: { _id: "$thema", count: { $sum: 1 } } },
+      { $sort: { _id: 1 } },
+      { $group: { _id: null, counts: { $push: "$count" } } },
+      { $project: { _id: 0, counts: 1 } }
     ]);
-    res.status(200).json({ questionCounts });
+    res.status(200).json(counts[0].counts);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -187,14 +182,26 @@ const fetchQuestionsOfQuiz = async (req, res) => {
 };
 
 const countsOfSolved = async (req, res) => {
-  const { thema } = req.query;
+  // const { thema } = req.query;
+  // try {
+  //   const user = await User.findOne({ email: req.params.email });
+  //   if (!user) {
+  //     return res.status(404).json({ message: "User not found" });
+  //   }
+  //   res.status(200).json({ solvedThemas: user.solvedThemas[thema] });
+  // } catch (error) {
+  //   res.status(400).json({ error: error.message });
+  // }
+
   try {
     const user = await User.findOne({ email: req.params.email });
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-    res.status(200).json({ solvedThemas: user.solvedThemas[thema] });
-  } catch (error) {
+    console.log("user.solvedThemas", user.solvedThemas)
+    res.status(200).json({ solvedThemas: user.solvedThemas });
+  }
+  catch (error) {
     res.status(400).json({ error: error.message });
   }
 };

@@ -8,71 +8,19 @@ import {
   TouchableOpacity,
 } from "react-native";
 import COLORS from "../assets/colors/color";
-import { useLogout } from "../components/Logout";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { UseAuthContext } from "../hooks/UseAuthContext";
-import { useIsFocused } from '@react-navigation/native';
 
 
 function Subjects(data) {
-  const [count, setCount] = useState([]);
-  const [solvedCount, setSolvedCount] = useState([]);
-  const { user } = UseAuthContext();
-  const isFocused = useIsFocused();
   const navigation = useNavigation();
 
 
-  useEffect(() => {
-    const fetchQuestions = async () => {
-      try {
-        const response = await fetch(
-          "https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/count",
-          {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-            },
-          }
-        );
-        const fetchData = await response.json();
-        const counts = fetchData.questionCounts.map((item) => item.count);
-        setCount(counts);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchQuestions();
-  }, []);
-
-  useEffect(() => {
-    const fetchSolved = async () => {
-      try {
-        const res = await fetch(
-          `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/solved?thema=${data.count}`,
-          {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-            },
-          }
-        );
-        const fetchData = await res.json();
-        setSolvedCount(fetchData.solvedThemas);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    if (isFocused) {
-        fetchSolved();
-      }
-  }, [ isFocused ]);
-
-
   const progress = useMemo(() => {
-    const allQuestions = count[data.count];
-    return (solvedCount / allQuestions) * 100;
-  }, [count, data.count, solvedCount]);
+    return (data.solvedCount / data.allQuestions) * 100;
+  }, [ data.count, data.solvedCount]);
+
 
 
   return (

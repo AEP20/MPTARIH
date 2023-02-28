@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -13,10 +13,15 @@ import { UseAuthContext } from "../hooks/UseAuthContext";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import COLORS from "../assets/colors/color";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { useIsFocused } from "@react-navigation/native";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
   const scrollViewRef = useRef(null);
+  const isFocused = useIsFocused();
+
+  const [solvedCount, setSolvedCount] = useState([]);
+  const [count, setCount] = useState([]);
 
   const { user } = UseAuthContext();
   console.log("user", user);
@@ -25,8 +30,50 @@ const HomeScreen = () => {
     scrollViewRef.current?.scrollToEnd({ animated: true });
   };
 
+  const fetchSolved = async () => {
+    try {
+      const res = await fetch(
+        `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/solved`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+      const fetchData = await res.json();
+      setSolvedCount(fetchData.solvedThemas);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchQuestions = async () => {
+    try {
+      const response = await fetch(
+        "https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/count",
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+      const fetchData = await response.json();
+      setCount(fetchData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (user){
+      fetchSolved();
+      fetchQuestions();
+    }
+  }, [isFocused]);
+
+
   return (
-    <View style={styles.container} >
+    <View style={styles.container}>
       {user && (
         <View
           style={{
@@ -73,6 +120,8 @@ const HomeScreen = () => {
           colors={["#005495", "#015f9c"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
+          solvedCount={solvedCount[0]}
+          allQuestions={count[0]}
           count="0"
         />
 
@@ -83,6 +132,9 @@ const HomeScreen = () => {
           end={{ x: 1, y: 0 }}
           start={{ x: 0, y: 1 }}
           count="1"
+          solvedCount={solvedCount[1]}
+          allQuestions={count[1]}
+
         />
 
         <Subjects
@@ -92,6 +144,8 @@ const HomeScreen = () => {
           start={{ x: 1, y: 1 }}
           end={{ x: 0, y: 0 }}
           count="2"
+          solvedCount={solvedCount[2]}
+          allQuestions={count[2]}
         />
 
         <Subjects
@@ -101,6 +155,9 @@ const HomeScreen = () => {
           colors={["#FF6565", "#FF4A4A"]}
           end={{ x: 0, y: 0 }}
           start={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[3]}
+          allQuestions={count[3]}
+
         />
 
         <Subjects
@@ -110,6 +167,8 @@ const HomeScreen = () => {
           colors={["#A555EC", "#A833CB"]}
           end={{ x: 0, y: 0 }}
           start={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[4]}
+          allQuestions={count[4]}
         />
 
         <Subjects
@@ -119,6 +178,8 @@ const HomeScreen = () => {
           colors={["#071A52", "#08085E"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[5]}
+          allQuestions={count[5]}
         />
 
         <Subjects
@@ -128,6 +189,8 @@ const HomeScreen = () => {
           colors={["#2F89FC", "#82ACFF"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[6]}
+          allQuestions={count[6]}
         />
 
         <Subjects
@@ -137,6 +200,8 @@ const HomeScreen = () => {
           colors={["#3C2A21", "#573E32"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[7]}
+          allQuestions={count[7]}
         />
 
         <Subjects
@@ -146,6 +211,8 @@ const HomeScreen = () => {
           colors={["#C70A80", "#BD3587"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[8]}
+          allQuestions={count[8]}
         />
 
         <Subjects
@@ -155,6 +222,8 @@ const HomeScreen = () => {
           colors={["#007965", "#00AF91"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[9]}
+          allQuestions={count[9]}
         />
 
         <Subjects
@@ -164,6 +233,8 @@ const HomeScreen = () => {
           colors={["#153E90", "#0E49B5"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[10]}
+          allQuestions={count[10]}
         />
 
         <Subjects
@@ -173,6 +244,8 @@ const HomeScreen = () => {
           colors={["#7A25B3", "#8105D8"]}
           end={{ x: 0, y: 0 }}
           start={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[11]}
+          allQuestions={count[11]}
         />
 
         <Subjects
@@ -182,6 +255,8 @@ const HomeScreen = () => {
           colors={["#FF1F5A", "#FF4174"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[12]}
+          allQuestions={count[12]}
         />
 
         <Subjects
@@ -191,6 +266,8 @@ const HomeScreen = () => {
           colors={["#56BBF1", "#4D77FF"]}
           end={{ x: 0, y: 0 }}
           start={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[13]}
+          allQuestions={count[13]}
         />
 
         <Subjects
@@ -200,6 +277,8 @@ const HomeScreen = () => {
           colors={["#03506F", "#276678"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[14]}
+          allQuestions={count[14]}
         />
 
         <Subjects
@@ -209,6 +288,8 @@ const HomeScreen = () => {
           colors={["#D75281", "#B93160"]}
           end={{ x: 0, y: 0 }}
           start={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[15]}
+          allQuestions={count[15]}
         />
 
         <Subjects
@@ -218,6 +299,8 @@ const HomeScreen = () => {
           colors={["#F2921D", "#F49D1A"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
+          solvedCount={solvedCount[16]}
+          allQuestions={count[16]}
         />
       </ScrollView>
     </View>
