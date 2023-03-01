@@ -23,7 +23,6 @@ function SavedQuestions() {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState([
-    { label: "Tümü", value: "" },
     { label: "Tarih Bilimi ,İlk ve Orta Çağ'da Dünya", value: "Konu1" },
     { label: "İlk ve Orta Çağ'da Türk Dünyası", value: "Konu2" },
     { label: "İslam Medeniyetinin Doğuşu", value: "Konu3" },

@@ -31,7 +31,6 @@ export default function MiniQuiz({ route }) {
   const fetchQuestions = async () => {
     console.log("user.email: " + user.email);
     console.log("themaName: " + themaName)
-    console.log(`https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/questions?thema=${themaName}`)
     try {
       const response = await fetch(
         `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
