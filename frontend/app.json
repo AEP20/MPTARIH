@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "MPTarih",
-    "slug": "mp-tarih",
+    "slug": "frontend",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",

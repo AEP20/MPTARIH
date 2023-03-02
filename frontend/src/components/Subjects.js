@@ -20,6 +20,7 @@ function Subjects(data) {
   const progress = useMemo(() => {
     return (data.solvedCount / data.allQuestions) * 100;
   }, [ data.count, data.solvedCount]);
+  console.log("progress" , progress)
 
 
 

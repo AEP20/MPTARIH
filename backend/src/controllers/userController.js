@@ -4,7 +4,7 @@ const JWT_SECRET = "1j2bn3kj1b21yvu2g412b34j1h2v3b12";
 
 
 const createToken = (_id) => {
-    return jwt.sign({ _id }, JWT_SECRET, {expiresIn: "3d"})
+    return jwt.sign({ _id }, JWT_SECRET)
 };
 
 

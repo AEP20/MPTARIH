@@ -41,7 +41,15 @@ const HomeScreen = () => {
         }
       );
       const fetchData = await res.json();
-      setSolvedCount(fetchData.solvedThemas);
+      console.log("fetchData", fetchData);
+      if (res.ok){
+        setSolvedCount(fetchData.solvedThemas);
+
+      }else {
+        setSolvedCount(0);
+      }
+      
+      console.log("solved", fetchData.solvedThemas);
     } catch (error) {
       console.log(error);
     }
@@ -58,19 +66,24 @@ const HomeScreen = () => {
         }
       );
       const fetchData = await response.json();
+      if (response.ok) {
+
       setCount(fetchData);
+      console.log("count", fetchData);
+      }else {
+        setCount(0);
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    if (user){
+    if (user) {
       fetchSolved();
       fetchQuestions();
     }
   }, [isFocused]);
-
 
   return (
     <View style={styles.container}>
@@ -120,8 +133,8 @@ const HomeScreen = () => {
           colors={["#005495", "#015f9c"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
-          solvedCount={solvedCount[0]}
-          allQuestions={count[0]}
+          solvedCount={user ? solvedCount[0] : 0}
+          allQuestions={user ? count[0] : 0}
           count="0"
         />
 
@@ -132,9 +145,8 @@ const HomeScreen = () => {
           end={{ x: 1, y: 0 }}
           start={{ x: 0, y: 1 }}
           count="1"
-          solvedCount={solvedCount[1]}
-          allQuestions={count[1]}
-
+          solvedCount={user ? solvedCount[1] : 0}
+          allQuestions={user ? count[1] : 0}
         />
 
         <Subjects
@@ -144,8 +156,8 @@ const HomeScreen = () => {
           start={{ x: 1, y: 1 }}
           end={{ x: 0, y: 0 }}
           count="2"
-          solvedCount={solvedCount[2]}
-          allQuestions={count[2]}
+          solvedCount={user ? solvedCount[2] : 0}
+          allQuestions={user ? count[2] : 0}
         />
 
         <Subjects
@@ -155,9 +167,8 @@ const HomeScreen = () => {
           colors={["#FF6565", "#FF4A4A"]}
           end={{ x: 0, y: 0 }}
           start={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[3]}
-          allQuestions={count[3]}
-
+          solvedCount={user ? solvedCount[3] : 0}
+          allQuestions={user ? count[3] : 0}
         />
 
         <Subjects
@@ -167,8 +178,8 @@ const HomeScreen = () => {
           colors={["#A555EC", "#A833CB"]}
           end={{ x: 0, y: 0 }}
           start={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[4]}
-          allQuestions={count[4]}
+          solvedCount={user ? solvedCount[4] : 0}
+          allQuestions={user ? count[4] : 0}
         />
 
         <Subjects
@@ -178,8 +189,8 @@ const HomeScreen = () => {
           colors={["#071A52", "#08085E"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[5]}
-          allQuestions={count[5]}
+          solvedCount={user ? solvedCount[5] : 0}
+          allQuestions={user ? count[5] : 0}
         />
 
         <Subjects
@@ -189,8 +200,8 @@ const HomeScreen = () => {
           colors={["#2F89FC", "#82ACFF"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[6]}
-          allQuestions={count[6]}
+          solvedCount={user ? solvedCount[6] : 0}
+          allQuestions={user ? count[6] : 0}
         />
 
         <Subjects
@@ -200,8 +211,8 @@ const HomeScreen = () => {
           colors={["#3C2A21", "#573E32"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[7]}
-          allQuestions={count[7]}
+          solvedCount={user ? solvedCount[7] : 0}
+          allQuestions={user ? count[7] : 0}
         />
 
         <Subjects
@@ -211,8 +222,8 @@ const HomeScreen = () => {
           colors={["#C70A80", "#BD3587"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[8]}
-          allQuestions={count[8]}
+          solvedCount={user ? solvedCount[8] : 0}
+          allQuestions={user ? count[8] : 0}
         />
 
         <Subjects
@@ -222,8 +233,8 @@ const HomeScreen = () => {
           colors={["#007965", "#00AF91"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[9]}
-          allQuestions={count[9]}
+          solvedCount={user ? solvedCount[9] : 0}
+          allQuestions={user ? count[9] : 0}
         />
 
         <Subjects
@@ -233,8 +244,8 @@ const HomeScreen = () => {
           colors={["#153E90", "#0E49B5"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[10]}
-          allQuestions={count[10]}
+          solvedCount={user ? solvedCount[10] : 0}
+          allQuestions={user ? count[10] : 0}
         />
 
         <Subjects
@@ -244,8 +255,8 @@ const HomeScreen = () => {
           colors={["#7A25B3", "#8105D8"]}
           end={{ x: 0, y: 0 }}
           start={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[11]}
-          allQuestions={count[11]}
+          solvedCount={user ? solvedCount[11] : 0}
+          allQuestions={user ? count[11] : 0}
         />
 
         <Subjects
@@ -255,8 +266,8 @@ const HomeScreen = () => {
           colors={["#FF1F5A", "#FF4174"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[12]}
-          allQuestions={count[12]}
+          solvedCount={user ? solvedCount[12] : 0}
+          allQuestions={user ? count[12] : 0}
         />
 
         <Subjects
@@ -266,8 +277,8 @@ const HomeScreen = () => {
           colors={["#56BBF1", "#4D77FF"]}
           end={{ x: 0, y: 0 }}
           start={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[13]}
-          allQuestions={count[13]}
+          solvedCount={user ? solvedCount[13] : 0}
+          allQuestions={user ? count[13] : 0}
         />
 
         <Subjects
@@ -277,8 +288,8 @@ const HomeScreen = () => {
           colors={["#03506F", "#276678"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[14]}
-          allQuestions={count[14]}
+          solvedCount={user ? solvedCount[14] : 0}
+          allQuestions={user ? count[14] : 0}
         />
 
         <Subjects
@@ -288,8 +299,8 @@ const HomeScreen = () => {
           colors={["#D75281", "#B93160"]}
           end={{ x: 0, y: 0 }}
           start={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[15]}
-          allQuestions={count[15]}
+          solvedCount={user ? solvedCount[15] : 0}
+          allQuestions={user ? count[15] : 0}
         />
 
         <Subjects
@@ -299,8 +310,8 @@ const HomeScreen = () => {
           colors={["#F2921D", "#F49D1A"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          solvedCount={solvedCount[16]}
-          allQuestions={count[16]}
+          solvedCount={user ? solvedCount[16] : 0}
+          allQuestions={user ? count[16] : 0}
         />
       </ScrollView>
     </View>
