@@ -21,6 +21,7 @@ import SavedQuestions from "./screens/SavedQuestions";
 import SavedCards from "./screens/SavedCards";
 import Settings from "./screens/Settings";
 import { useNavigation } from "@react-navigation/native";
+import Cards from "./components/Cards";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -39,6 +40,7 @@ export default function Main() {
         )}
         <Stack.Screen name="ThemaScreen" component={ThemaScreen} />
         <Stack.Screen name="MiniQuiz" component={MiniQuiz} />
+        <Stack.Screen name="BilgiKartları" component={Cards} />
       </Stack.Navigator>
     </NavigationContainer>
   );

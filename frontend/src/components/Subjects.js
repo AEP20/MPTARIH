@@ -60,7 +60,7 @@ function Subjects(data) {
           <View style={styles.bottom_left_container}>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("bilgiKartları", {
+                navigation.navigate("BilgiKartları", {
                   themaName: data.themaName,
                   colors: data.colors,
                   start: data.start,
