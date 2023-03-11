@@ -71,58 +71,57 @@ function Settings() {
 
   return (
     <View
-      style={{
-        flex: 1,
-        backgroundColor: "#fff",
-      }}
-    >
+  style={{
+    flex: 1,
+    backgroundColor: "#fff",
+  }}
+>
+  <View
+    style={{
+      width: "100%",
+      height: "11%",
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      position: "relative",
+      borderBottomColor: COLORS.black10,
+      borderBottomWidth: 2,
+
+      flexDirection: "row",
+      justifyContent: "space-between",
+      display: "flex",
+      alignItems: "flex-end",
+    }}
+  >
+    <Pressable onPress={() => navigation.openDrawer()}>
+      <MaterialCommunityIcons
+        name="menu"
+        style={{
+          color: "black",
+          fontSize: 28,
+        }}
+      />
+    </Pressable>
+    {user && (
       <View
         style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "flex-end",
-          width: "100%",
-          height: 70,
-          paddingVertical: 10,
-          paddingHorizontal: 20,
-          display: "flex",
-          position: "relative",
-          backgroundColor: COLORS.black05,
-          borderBottomColor: COLORS.black10,
-          borderBottomWidth: 2,
+          alignItems: "center",
+          marginBottom: 8,
         }}
       >
-        <Pressable onPress={() => navigation.openDrawer()}>
-          <MaterialCommunityIcons
-            name="menu"
-            style={{
-              color: "black",
-              fontSize: 28,
-            }}
-          ></MaterialCommunityIcons>
-        </Pressable>
-        {user && (
-          <View
-            style={{
-              alignItems: "center",
-              marginBottom: 25,
-              position: "absolute",
-              right: 30,
-              top: 30,
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 16,
-                color: COLORS.black75,
-                fontWeight: "bold",
-              }}
-            >
-              {user.email}
-            </Text>
-          </View>
-        )}
+        <Text
+          style={{
+            fontSize: 16,
+            color: COLORS.black75,
+            fontWeight: "bold",
+          }}
+        >
+          {user.email}
+        </Text>
       </View>
+    )}
+    
+  </View>
+
 
       <View style={styles.container}>
         <TouchableOpacity style={styles.button} onPress={handleHelpPress}>
@@ -151,7 +150,6 @@ function Settings() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f2f2f2",
     paddingTop: 20,
     paddingHorizontal: 20,
   },

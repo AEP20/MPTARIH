@@ -119,9 +119,7 @@ const LoginScreen = () => {
             >
                 <Text style={styles.buttonText}>Giriş Yap</Text>
             </LinearGradient>
-          
         </TouchableOpacity>
-
         <TouchableOpacity onPress={() => navigation.navigate("RegisterScreen")}>
           <Text style={styles.loginText}>Hesabın yok mu ? Kayıt Ol</Text>
         </TouchableOpacity>

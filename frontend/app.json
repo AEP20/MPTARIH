@@ -1,11 +1,16 @@
 {
   "expo": {
+    "privacy": "public",
+    "icon":"./src/assets/Mptarih.png",
     "name": "MPTarih",
-    "slug": "frontend",
+    "slug": "mptarih",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
-    
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -14,34 +19,15 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.MP.Tarih"
-    },
-    "build": {
-      "development-simulator": {
-        "developmentClient": true,
-        "distribution": "internal",
-        "ios": {
-          "simulator": true
-        }
-      }
+      "bundleIdentifier": "com.MP.Tarih",
+      "buildNumber": "3"
     },
     "android": {
       "package": "com.MP.Tarih"
     },
-
-    "plugins": [
-      [
-        "expo-build-properties",
-        {
-          "ios": {
-            "flipper": true
-          }
-        }
-      ]
-    ],
     "extra": {
       "eas": {
-        "projectId": "d3a4b78b-efb7-4811-8a20-d5ccb89bbc0b"
+        "projectId": "be74e3cb-06bf-4904-b745-5811ac214fdb"
       }
     }
   }

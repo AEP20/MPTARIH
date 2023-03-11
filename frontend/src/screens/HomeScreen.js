@@ -7,6 +7,7 @@ import {
   Pressable,
   TouchableOpacity,
   ScrollView,
+  Dimensions,
 } from "react-native";
 import Subjects from "../components/Subjects";
 import { UseAuthContext } from "../hooks/UseAuthContext";
@@ -85,6 +86,9 @@ const HomeScreen = () => {
     }
   }, [isFocused]);
 
+  const { height } = Dimensions.get('window');
+const navbarHeight = height * 0.11;
+
   return (
     <View style={styles.container}>
       {user && (
@@ -94,7 +98,7 @@ const HomeScreen = () => {
             justifyContent: "space-between",
             alignItems: "flex-end",
             width: "100%",
-            height: 70,
+            height: navbarHeight,
             paddingVertical: 10,
             paddingHorizontal: 20,
             display: "flex",
@@ -114,19 +118,21 @@ const HomeScreen = () => {
           </Pressable>
 
           <TouchableOpacity
-            style={{ position: "absolute", top: 27, right: 25 }}
             onPress={handleScrollToBottom}
           >
             <MaterialCommunityIcons
               name="arrow-down"
-              size={28}
-              color={COLORS.black}
+              style={{
+                color: COLORS.black,
+                fontSize: 28,
+              }}
             />
           </TouchableOpacity>
         </View>
       )}
 
-      <ScrollView ref={scrollViewRef} showsVerticalScrollIndicator={false}>
+      <ScrollView ref={scrollViewRef} showsVerticalScrollIndicator={false} 
+      >
         <Subjects
           title="Tarih Bilimi ,İlk ve Orta Çağ'da Dünya"
           themaName="Konu1"
@@ -321,6 +327,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fff",
   },
 });
 

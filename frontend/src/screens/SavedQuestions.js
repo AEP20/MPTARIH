@@ -6,6 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
   ActivityIndicator,
+  Dimensions
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -159,6 +160,9 @@ function SavedQuestions() {
     }
   };
 
+  const { height, width } = Dimensions.get('window');
+const navbarHeight = height * 0.14;
+
   return (
     <View
       style={{
@@ -168,10 +172,17 @@ function SavedQuestions() {
     >
       <View
         style={{
-          height: 85,
           borderBottomColor: "#e5e5e5",
           borderBottomWidth: 2,
           backgroundColor: COLORS.black05,
+
+          flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        height: navbarHeight,
+        backgroundColor: '#FFFFFF',
+        paddingHorizontal: width * 0.05,
+        zIndex: 10,
         }}
       >
         <Pressable onPress={() => navigation.openDrawer()}>
@@ -181,18 +192,15 @@ function SavedQuestions() {
               color: "black",
               fontSize: 28,
               position: "absolute",
-              top: 35,
-              left: 20,
             }}
           ></MaterialCommunityIcons>
         </Pressable>
-      </View>
 
       <View
         style={{
           backgroundColor: "#fafafa",
           position: "absolute",
-          top: 25,
+          bottom: 10,
           right: 10,
           zIndex: 1,
         }}
@@ -206,7 +214,6 @@ function SavedQuestions() {
           setItems={setItems}
           style={{
             width: 280,
-            backgroundColor: COLORS.black05,
             borderColor: COLORS.black50,
           }}
           textStyle={{
@@ -218,11 +225,11 @@ function SavedQuestions() {
             color: COLORS.black90,
           }}
           dropDownContainerStyle={{
-            backgroundColor: COLORS.black05,
             borderWidth: 1,
             borderColor: COLORS.black50,
           }}
         />
+      </View>
       </View>
 
       {loading ? (
@@ -236,7 +243,6 @@ function SavedQuestions() {
             <View
               style={{
                 backgroundColor: COLORS.white,
-                borderRadius: 10,
                 marginBottom: 10,
                 padding: 12,
               }}

@@ -21,12 +21,11 @@ function AboutScreen() {
           justifyContent: "space-between",
           alignItems: "flex-end",
           width: "100%",
-          height: 70,
+          height: "11%",
           paddingVertical: 10,
           paddingHorizontal: 20,
           display: "flex",
           position: "relative",
-          backgroundColor: COLORS.black05,
           borderBottomColor: COLORS.black10,
           borderBottomWidth: 2,
         }}

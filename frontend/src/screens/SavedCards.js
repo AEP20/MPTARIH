@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { View, Text , Pressable} from 'react-native'
+import { View, Text , Pressable, Dimensions} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import COLORS from '../assets/colors/color'
@@ -27,7 +27,8 @@ function SavedCards() {
         ]);
   const [value, setValue] = useState(items[0].value);
 
-
+  const { height, width } = Dimensions.get('window');
+const navbarHeight = height * 0.14;
 
 
   return (
@@ -39,10 +40,17 @@ function SavedCards() {
     >
       <View
         style={{
-          height: 85,
           borderBottomColor: "#e5e5e5",
           borderBottomWidth: 2,
           backgroundColor: COLORS.black05,
+
+          flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        height: navbarHeight,
+        backgroundColor: '#FFFFFF',
+        paddingHorizontal: width * 0.05,
+        zIndex: 10,
         }}
       >
         <Pressable onPress={() => navigation.openDrawer()}>
@@ -52,18 +60,15 @@ function SavedCards() {
               color: "black",
               fontSize: 28,
               position: "absolute",
-              top: 35,
-              left: 20,
             }}
           ></MaterialCommunityIcons>
         </Pressable>
-      </View>
 
       <View
         style={{
           backgroundColor: "#fafafa",
           position: "absolute",
-          top: 25,
+          bottom: 10,
           right: 10,
           zIndex: 1,
         }}
@@ -77,34 +82,23 @@ function SavedCards() {
           setItems={setItems}
           style={{
             width: 280,
-            backgroundColor: COLORS.black05,
-
             borderColor: COLORS.black50,
           }}
           textStyle={{
-            fontSize: 12,
+            fontSize: 14,
+            color: COLORS.black90,
           }}
           labelStyle={{
-            fontSize: 12,
+            fontSize: 14,
+            color: COLORS.black90,
           }}
           dropDownContainerStyle={{
-            backgroundColor: COLORS.black05,
             borderWidth: 1,
             borderColor: COLORS.black50,
           }}
         />
       </View>
-
-      <View
-        style={{
-          backgroundColor: "black",
-          position: "absolute",
-          top: 25,
-          right: 10,
-          zIndex: 1,
-        }}
-      >
-    </View>
+      </View>
     </View>
   )
 }
