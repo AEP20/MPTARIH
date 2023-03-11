@@ -50,7 +50,6 @@ const HomeScreen = () => {
         setSolvedCount(0);
       }
       
-      console.log("solved", fetchData.solvedThemas);
     } catch (error) {
       console.log(error);
     }
@@ -70,7 +69,6 @@ const HomeScreen = () => {
       if (response.ok) {
 
       setCount(fetchData);
-      console.log("count", fetchData);
       }else {
         setCount(0);
       }
@@ -214,9 +212,9 @@ const navbarHeight = height * 0.11;
           title="Osmanlı Medeniyeti"
           themaName="Konu8"
           count="7"
-          colors={["#3C2A21", "#573E32"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
+          colors={["#F2921D", "#F2921D"]}
+          end={{ x: 0, y: 0 }}
+          start={{ x: 1, y: 0 }}
           solvedCount={user ? solvedCount[7] : 0}
           allQuestions={user ? count[7] : 0}
         />
@@ -320,6 +318,7 @@ const navbarHeight = height * 0.11;
           allQuestions={user ? count[16] : 0}
         />
       </ScrollView>
+      
     </View>
   );
 };
@@ -328,6 +327,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    
   },
 });
 

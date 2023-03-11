@@ -1,10 +1,12 @@
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = "1j2bn3kj1b21yvu2g412b34j1h2v3b12";
+const functions = require('firebase-functions');
+const jwtSecret = functions.config().app.jwt_token_secret; 
+
 
 
 const createToken = (_id) => {
-    return jwt.sign({ _id }, JWT_SECRET)
+    return jwt.sign({ _id }, jwtSecret)
 };
 
 

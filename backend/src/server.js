@@ -5,9 +5,9 @@ require("dotenv").config();
 const userRoutes = require("./routes/user");
 const quizRoutes = require("./routes/quiz");
 const functions = require("firebase-functions");
+const uri = functions.config().app.mongo_uri;
 
 const PORT = 4000;
-const MONGO_URI= "mongodb+srv://ahmet_emre:emre244c@mpykstarih.5vsodvd.mongodb.net/?retryWrites=true&w=majority"
 
 
 
@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 
 
 mongoose
-    .connect(MONGO_URI, {
+    .connect(uri, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })

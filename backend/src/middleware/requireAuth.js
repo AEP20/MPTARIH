@@ -1,6 +1,10 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-const JWT_SECRET = "1j2bn3kj1b21yvu2g412b34j1h2v3b12";
+const functions = require('firebase-functions');
+const jwtSecret = functions.config().app.jwt_token_secret; 
+
+
+
 
 
 const requireAuth = async(req, res, next) => {
@@ -12,7 +16,7 @@ const requireAuth = async(req, res, next) => {
     const token = authorization.split(" ")[1];
 
     try {
-        const {_id} = jwt.verify(token, JWT_SECRET);
+        const {_id} = jwt.verify(token, jwtSecret);
         req.user = await User.findById({_id}).select("_id");; 
         next();
 
