@@ -52,43 +52,6 @@ export default function Main() {
 function DrawerScreen() {
 
   const navigation = useNavigation();
-  const [open, setOpen] = useState(false);
-  const [items, setItems] = useState([
-    { label: "Tarih Bilimi ,İlk ve Orta Çağ'da Dünya", value: "Konu1" },
-    { label: "İlk ve Orta Çağ'da Türk Dünyası", value: "Konu2" },
-    { label: "İslam Medeniyetinin Doğuşu", value: "Konu3" },
-    {
-      label: "Türklerin İslamiyet'i Kabulü, İlk Türk İslam Devletleri",
-      value: "Konu4",
-    },
-    { label: "Selçuklu Türkiyesi", value: "Konu5" },
-    { label: "Beylikten Devlete Osmanlı Siyaseti", value: "Konu6" },
-    { label: "Dünya Gücü Osmanlı", value: "Konu7" },
-    { label: "Osmanlı Medeniyeti", value: "Konu8" },
-    { label: "XVII. yüzyıl Osmanlı Siyaseti" , value: "Konu9"},
-    { label: "Avrupa Tarihi", value: "Konu10" },
-    { label: "XVIII. yüzyıl Osmanlı Siyaseti", value: "Konu11" },
-    { label: "XIX. yüzyıl Osmanlı Siyaseti", value: "Konu12" },
-    {
-      label: "20. yüzyıl Başlarında Osmanlı Devleti ve Dünya",
-      value: "Konu13",
-    },
-    { label: "Milli Mücadele", value: "Konu14" },
-    {
-      label: "Türk İnkılabı ve Atatürk Dönemi Dış Politikası",
-      value: "Konu15",
-    },
-    {
-      label: "İkinci Dünya Savaşında ve Sonrasında; Türkiye ve Dünya",
-      value: "Konu16",
-    },
-  ]);
-  const [value, setValue] = useState(items[0].value);
-  
-  useEffect(() => {
-    console.log(value);
-    navigation.navigate("Kaydedilen Sorular", {value: value});
-  }, [value]);
 
     
   return (
@@ -99,87 +62,17 @@ function DrawerScreen() {
         headerTitle: "", 
         headerTintColor: COLORS.black75,
         headerLeft: () =>
-     <Pressable style={{paddingLeft:24}}>
-          <MaterialCommunityIcons size={28} name="menu" onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())} />
+     <Pressable style={{paddingLeft:24}} onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
+          <MaterialCommunityIcons size={30} name="menu"  />
       </Pressable >
+      
       }}
       drawerContent={(props) => <DrawerContent {...props} />}
     >
       <Drawer.Screen name="Ana Menü" component={HomeScreen} />
       <Drawer.Screen name="Hakkımızda" component={AboutScreen} />
-      <Drawer.Screen 
-        name="Kaydedilen Sorular" 
-        component={SavedQuestions}
-        options={{ 
-          headerRight: () => (
-            <View style={{width:300, marginTop:3}}>
-                <DropDownPicker
-            open={open}
-            value={value}
-            items={items}
-            setOpen={setOpen}
-            setValue={setValue}
-            setItems={setItems}
-            style={{
-              borderRadius:0,
-              width:"100%",
-              borderWidth: 0,
-              marginBottom: 10,
-            }}
-            textStyle={{
-              fontSize: 14,
-              fontWeight:"500",
-              color: COLORS.black90,
-            }}
-            labelStyle={{
-              fontSize: 14,
-              color: COLORS.black90,
-            }}
-            dropDownContainerStyle={{
-              borderWidth: 0,
-            }}
-          />
-            </View>
-          ),
-        }}
-      />
-      
-      <Drawer.Screen 
-        name="Kaydedilen Kartlar" 
-        component={SavedCards}
-        options={{ 
-          headerRight: () => (
-            <View style={{width:300, marginTop:3}}>
-                <DropDownPicker
-            open={open}
-            value={value}
-            items={items}
-            setOpen={setOpen}
-            setValue={setValue}
-            setItems={setItems}
-            style={{
-              borderRadius:0,
-              width:"100%",
-              borderWidth: 0,
-              marginBottom: 10,
-            }}
-            textStyle={{
-              fontSize: 14,
-              fontWeight:"500",
-              color: COLORS.black90,
-            }}
-            labelStyle={{
-              fontSize: 14,
-              color: COLORS.black90,
-            }}
-            dropDownContainerStyle={{
-              borderWidth: 0,
-            }}
-          />
-            </View>
-          ),
-        }}
-      />
+      <Drawer.Screen name="Kaydedilen Sorular" component={SavedQuestions} />
+      {/* <Drawer.Screen name="Kaydedilen Kartlar" component={SavedCards} /> */}
       <Drawer.Screen name="Ayarlar" component={Settings} />
     </Drawer.Navigator>
   );

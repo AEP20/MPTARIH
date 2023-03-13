@@ -49,6 +49,18 @@ function Subjects(data) {
               bottom: 0,
               left: 0,
               height: 5,
+              backgroundColor: data.colors[0],
+              opacity: 0.1,
+
+              width:"100%"
+            }}
+          ></View>
+          <View
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              height: 5,
               backgroundColor: "green",
               width: `${progress}%`,
             }}
@@ -143,8 +155,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
     paddingHorizontal: 8,
-    paddingVertical:1,
-    marginTop: 5,
+    marginTop: 8,
   },
   Thema: {
     height: 110,

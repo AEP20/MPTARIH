@@ -16,7 +16,6 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { useIsFocused } from "@react-navigation/native";
 
 const HomeScreen = () => {
-  const scrollViewRef = useRef(null);
   const isFocused = useIsFocused();
 
   const [solvedCount, setSolvedCount] = useState([]);
@@ -80,10 +79,11 @@ const HomeScreen = () => {
   }, [isFocused]);
 
 
-
   return (
     <View style={styles.container}>
-      <ScrollView ref={scrollViewRef} showsVerticalScrollIndicator={false} 
+        
+      <ScrollView showsVerticalScrollIndicator={false}
+      
       >
         <Subjects
           title="Tarih Bilimi ,İlk ve Orta Çağ'da Dünya"
@@ -281,7 +281,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    
   },
 });
 

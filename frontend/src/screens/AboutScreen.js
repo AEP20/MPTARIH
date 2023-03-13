@@ -6,7 +6,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "../assets/colors/color";
 
 function AboutScreen() {
-
+  const navigation = useNavigation();
   return (
     <View
       style={{

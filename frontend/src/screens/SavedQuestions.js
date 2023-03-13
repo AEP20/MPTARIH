@@ -18,45 +18,43 @@ import { useIsFocused } from "@react-navigation/native";
 
 
 function SavedQuestions({route}) {
-  const { value } = route.params;
-  console.log("value", value);
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const { user } = UseAuthContext();
 
   const [loading, setLoading] = useState(false);
-  // const [open, setOpen] = useState(false);
-  // const [items, setItems] = useState([
-  //   { label: "Tarih Bilimi ,İlk ve Orta Çağ'da Dünya", value: "Konu1" },
-  //   { label: "İlk ve Orta Çağ'da Türk Dünyası", value: "Konu2" },
-  //   { label: "İslam Medeniyetinin Doğuşu", value: "Konu3" },
-  //   {
-  //     label: "Türklerin İslamiyet'i Kabulü, İlk Türk İslam Devletleri",
-  //     value: "Konu4",
-  //   },
-  //   { label: "Selçuklu Türkiyesi", value: "Konu5" },
-  //   { label: "Beylikten Devlete Osmanlı Siyaseti", value: "Konu6" },
-  //   { label: "Dünya Gücü Osmanlı", value: "Konu7" },
-  //   { label: "Osmanlı Medeniyeti", value: "Konu8" },
-  //   { label: "XVII. yüzyıl Osmanlı Siyaseti" , value: "Konu9"},
-  //   { label: "Avrupa Tarihi", value: "Konu10" },
-  //   { label: "XVIII. yüzyıl Osmanlı Siyaseti", value: "Konu11" },
-  //   { label: "XIX. yüzyıl Osmanlı Siyaseti", value: "Konu12" },
-  //   {
-  //     label: "20. yüzyıl Başlarında Osmanlı Devleti ve Dünya",
-  //     value: "Konu13",
-  //   },
-  //   { label: "Milli Mücadele", value: "Konu14" },
-  //   {
-  //     label: "Türk İnkılabı ve Atatürk Dönemi Dış Politikası",
-  //     value: "Konu15",
-  //   },
-  //   {
-  //     label: "İkinci Dünya Savaşında ve Sonrasında; Türkiye ve Dünya",
-  //     value: "Konu16",
-  //   },
-  // ]);
-  // const [value, setValue] = useState(items[0].value);
+  const [open, setOpen] = useState(false);
+  const [items, setItems] = useState([
+    { label: "Tarih Bilimi ,İlk ve Orta Çağ'da Dünya", value: "Konu1" },
+    { label: "İlk ve Orta Çağ'da Türk Dünyası", value: "Konu2" },
+    { label: "İslam Medeniyetinin Doğuşu", value: "Konu3" },
+    {
+      label: "Türklerin İslamiyet'i Kabulü, İlk Türk İslam Devletleri",
+      value: "Konu4",
+    },
+    { label: "Selçuklu Türkiyesi", value: "Konu5" },
+    { label: "Beylikten Devlete Osmanlı Siyaseti", value: "Konu6" },
+    { label: "Dünya Gücü Osmanlı", value: "Konu7" },
+    { label: "Osmanlı Medeniyeti", value: "Konu8" },
+    { label: "XVII. yüzyıl Osmanlı Siyaseti" , value: "Konu9"},
+    { label: "Avrupa Tarihi", value: "Konu10" },
+    { label: "XVIII. yüzyıl Osmanlı Siyaseti", value: "Konu11" },
+    { label: "XIX. yüzyıl Osmanlı Siyaseti", value: "Konu12" },
+    {
+      label: "20. yüzyıl Başlarında Osmanlı Devleti ve Dünya",
+      value: "Konu13",
+    },
+    { label: "Milli Mücadele", value: "Konu14" },
+    {
+      label: "Türk İnkılabı ve Atatürk Dönemi Dış Politikası",
+      value: "Konu15",
+    },
+    {
+      label: "İkinci Dünya Savaşında ve Sonrasında; Türkiye ve Dünya",
+      value: "Konu16",
+    },
+  ]);
+  const [value, setValue] = useState(items[0].value);
   const [allQuestions, setAllQuestions] = useState([]);
 
   const fetchFavoriteQuestions = async () => {
@@ -172,9 +170,7 @@ const navbarHeight = height * 0.14;
         backgroundColor: COLORS.white,
       }}
     >
-      
-
-      {/* <DropDownPicker
+      <DropDownPicker
           open={open}
           value={value}
           items={items}
@@ -200,7 +196,7 @@ const navbarHeight = height * 0.14;
           dropDownContainerStyle={{
             borderWidth: 0,
           }}
-        /> */}
+        />
       
 
       {loading ? (

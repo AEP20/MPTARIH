@@ -76,53 +76,7 @@ function Settings() {
     backgroundColor: "#fff",
   }}
 >
-  {/* <View
-    style={{
-      width: "100%",
-      height: "11%",
-      paddingVertical: 10,
-      paddingHorizontal: 20,
-      position: "relative",
-      borderBottomColor: COLORS.black10,
-      borderBottomWidth: 2,
-
-      flexDirection: "row",
-      justifyContent: "space-between",
-      display: "flex",
-      alignItems: "flex-end",
-    }}
-  >
-    <Pressable onPress={() => navigation.openDrawer()}>
-      <MaterialCommunityIcons
-        name="menu"
-        style={{
-          color: "black",
-          fontSize: 28,
-        }}
-      />
-    </Pressable>
-    {user && (
-      <View
-        style={{
-          alignItems: "center",
-          marginBottom: 8,
-        }}
-      >
-        <Text
-          style={{
-            fontSize: 16,
-            color: COLORS.black75,
-            fontWeight: "bold",
-          }}
-        >
-          {user.email}
-        </Text>
-      </View>
-    )}
-    
-  </View> */}
-
-
+  
       <View style={styles.container}>
         <TouchableOpacity style={styles.button} onPress={handleHelpPress}>
           <Text style={styles.buttonText}>
