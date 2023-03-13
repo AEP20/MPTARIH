@@ -25,12 +25,16 @@ router.get("/detailedCount", detailedCount)
 
 router.use(requireAuth);
 
+
+
 router.post("/completed", solvedQuestions);
 router.get("/:email/questions", fetchQuestionsOfQuiz);
 router.get("/:email/solved", countsOfSolved);
 router.post("/:email/favorite/:id", favoriteQuestion);
 router.get("/:email/favorite", getFavoriteQuestions);
 router.delete("/:email/favorite/:id", deleteFavoriteQuestion);
+
+
 
 
 

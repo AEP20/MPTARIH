@@ -7,7 +7,6 @@ import {
   Pressable,
   TouchableOpacity,
   ScrollView,
-  Dimensions,
 } from "react-native";
 import Subjects from "../components/Subjects";
 import { UseAuthContext } from "../hooks/UseAuthContext";
@@ -17,7 +16,6 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { useIsFocused } from "@react-navigation/native";
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
   const scrollViewRef = useRef(null);
   const isFocused = useIsFocused();
 
@@ -27,9 +25,6 @@ const HomeScreen = () => {
   const { user } = UseAuthContext();
   console.log("user", user);
 
-  const handleScrollToBottom = () => {
-    scrollViewRef.current?.scrollToEnd({ animated: true });
-  };
 
   const fetchSolved = async () => {
     try {
@@ -84,51 +79,10 @@ const HomeScreen = () => {
     }
   }, [isFocused]);
 
-  const { height } = Dimensions.get('window');
-const navbarHeight = height * 0.11;
+
 
   return (
     <View style={styles.container}>
-      {user && (
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-            width: "100%",
-            height: navbarHeight,
-            paddingVertical: 10,
-            paddingHorizontal: 20,
-            display: "flex",
-            position: "relative",
-            borderBottomColor: "#e5e5e5",
-            borderBottomWidth: 2,
-          }}
-        >
-          <Pressable onPress={() => navigation.openDrawer()}>
-            <MaterialCommunityIcons
-              name="menu"
-              style={{
-                color: COLORS.black,
-                fontSize: 28,
-              }}
-            ></MaterialCommunityIcons>
-          </Pressable>
-
-          <TouchableOpacity
-            onPress={handleScrollToBottom}
-          >
-            <MaterialCommunityIcons
-              name="arrow-down"
-              style={{
-                color: COLORS.black,
-                fontSize: 28,
-              }}
-            />
-          </TouchableOpacity>
-        </View>
-      )}
-
       <ScrollView ref={scrollViewRef} showsVerticalScrollIndicator={false} 
       >
         <Subjects

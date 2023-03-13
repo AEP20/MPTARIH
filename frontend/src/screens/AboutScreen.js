@@ -6,7 +6,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "../assets/colors/color";
 
 function AboutScreen() {
-  const navigation = useNavigation();
 
   return (
     <View
@@ -15,32 +14,7 @@ function AboutScreen() {
         backgroundColor: "#fff",
       }}
     >
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "flex-end",
-          width: "100%",
-          height: "11%",
-          paddingVertical: 10,
-          paddingHorizontal: 20,
-          display: "flex",
-          position: "relative",
-          borderBottomColor: COLORS.black10,
-          borderBottomWidth: 2,
-        }}
-      >
-        <Pressable onPress={() => navigation.openDrawer()}>
-          <MaterialCommunityIcons
-            name="menu"
-            style={{
-              color: "black",
-              fontSize: 28,
-            }}
-          ></MaterialCommunityIcons>
-        </Pressable>
-      </View>
-
+    
       <View
         style={{
           flex: 1,

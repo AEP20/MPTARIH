@@ -16,44 +16,47 @@ import { UseAuthContext } from "../hooks/UseAuthContext";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { useIsFocused } from "@react-navigation/native";
 
-function SavedQuestions() {
+
+function SavedQuestions({route}) {
+  const { value } = route.params;
+  console.log("value", value);
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const { user } = UseAuthContext();
 
   const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [items, setItems] = useState([
-    { label: "Tarih Bilimi ,İlk ve Orta Çağ'da Dünya", value: "Konu1" },
-    { label: "İlk ve Orta Çağ'da Türk Dünyası", value: "Konu2" },
-    { label: "İslam Medeniyetinin Doğuşu", value: "Konu3" },
-    {
-      label: "Türklerin İslamiyet'i Kabulü, İlk Türk İslam Devletleri",
-      value: "Konu4",
-    },
-    { label: "Selçuklu Türkiyesi", value: "Konu5" },
-    { label: "Beylikten Devlete Osmanlı Siyaseti", value: "Konu6" },
-    { label: "Dünya Gücü Osmanlı", value: "Konu7" },
-    { label: "Osmanlı Medeniyeti", value: "Konu8" },
-    { label: "XVII. yüzyıl Osmanlı Siyaseti" , value: "Konu9"},
-    { label: "Avrupa Tarihi", value: "Konu10" },
-    { label: "XVIII. yüzyıl Osmanlı Siyaseti", value: "Konu11" },
-    { label: "XIX. yüzyıl Osmanlı Siyaseti", value: "Konu12" },
-    {
-      label: "20. yüzyıl Başlarında Osmanlı Devleti ve Dünya",
-      value: "Konu13",
-    },
-    { label: "Milli Mücadele", value: "Konu14" },
-    {
-      label: "Türk İnkılabı ve Atatürk Dönemi Dış Politikası",
-      value: "Konu15",
-    },
-    {
-      label: "İkinci Dünya Savaşında ve Sonrasında; Türkiye ve Dünya",
-      value: "Konu16",
-    },
-  ]);
-  const [value, setValue] = useState(items[0].value);
+  // const [open, setOpen] = useState(false);
+  // const [items, setItems] = useState([
+  //   { label: "Tarih Bilimi ,İlk ve Orta Çağ'da Dünya", value: "Konu1" },
+  //   { label: "İlk ve Orta Çağ'da Türk Dünyası", value: "Konu2" },
+  //   { label: "İslam Medeniyetinin Doğuşu", value: "Konu3" },
+  //   {
+  //     label: "Türklerin İslamiyet'i Kabulü, İlk Türk İslam Devletleri",
+  //     value: "Konu4",
+  //   },
+  //   { label: "Selçuklu Türkiyesi", value: "Konu5" },
+  //   { label: "Beylikten Devlete Osmanlı Siyaseti", value: "Konu6" },
+  //   { label: "Dünya Gücü Osmanlı", value: "Konu7" },
+  //   { label: "Osmanlı Medeniyeti", value: "Konu8" },
+  //   { label: "XVII. yüzyıl Osmanlı Siyaseti" , value: "Konu9"},
+  //   { label: "Avrupa Tarihi", value: "Konu10" },
+  //   { label: "XVIII. yüzyıl Osmanlı Siyaseti", value: "Konu11" },
+  //   { label: "XIX. yüzyıl Osmanlı Siyaseti", value: "Konu12" },
+  //   {
+  //     label: "20. yüzyıl Başlarında Osmanlı Devleti ve Dünya",
+  //     value: "Konu13",
+  //   },
+  //   { label: "Milli Mücadele", value: "Konu14" },
+  //   {
+  //     label: "Türk İnkılabı ve Atatürk Dönemi Dış Politikası",
+  //     value: "Konu15",
+  //   },
+  //   {
+  //     label: "İkinci Dünya Savaşında ve Sonrasında; Türkiye ve Dünya",
+  //     value: "Konu16",
+  //   },
+  // ]);
+  // const [value, setValue] = useState(items[0].value);
   const [allQuestions, setAllQuestions] = useState([]);
 
   const fetchFavoriteQuestions = async () => {
@@ -127,7 +130,6 @@ function SavedQuestions() {
         <Text
           style={{
             fontSize: 16,
-            fontWeight: "bold",
             color: COLORS.black75,
             marginTop: 20,
           }}
@@ -170,42 +172,9 @@ const navbarHeight = height * 0.14;
         backgroundColor: COLORS.white,
       }}
     >
-      <View
-        style={{
-          borderBottomColor: "#e5e5e5",
-          borderBottomWidth: 2,
-          backgroundColor: COLORS.black05,
+      
 
-          flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        height: navbarHeight,
-        backgroundColor: '#FFFFFF',
-        paddingHorizontal: width * 0.05,
-        zIndex: 10,
-        }}
-      >
-        <Pressable onPress={() => navigation.openDrawer()}>
-          <MaterialCommunityIcons
-            name="menu"
-            style={{
-              color: "black",
-              fontSize: 28,
-              position: "absolute",
-            }}
-          ></MaterialCommunityIcons>
-        </Pressable>
-
-      <View
-        style={{
-          backgroundColor: "#fafafa",
-          position: "absolute",
-          bottom: 10,
-          right: 10,
-          zIndex: 1,
-        }}
-      >
-        <DropDownPicker
+      {/* <DropDownPicker
           open={open}
           value={value}
           items={items}
@@ -214,10 +183,14 @@ const navbarHeight = height * 0.14;
           setItems={setItems}
           style={{
             width: 280,
-            borderColor: COLORS.black50,
+            borderRadius:0,
+            width:"100%",
+            borderWidth: 0,
+            marginBottom: 10,
           }}
           textStyle={{
             fontSize: 14,
+            fontWeight:"500",
             color: COLORS.black90,
           }}
           labelStyle={{
@@ -225,12 +198,10 @@ const navbarHeight = height * 0.14;
             color: COLORS.black90,
           }}
           dropDownContainerStyle={{
-            borderWidth: 1,
-            borderColor: COLORS.black50,
+            borderWidth: 0,
           }}
-        />
-      </View>
-      </View>
+        /> */}
+      
 
       {loading ? (
         <LoadingScreen />
