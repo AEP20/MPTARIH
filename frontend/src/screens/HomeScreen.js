@@ -15,6 +15,7 @@ import COLORS from "../assets/colors/color";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { useIsFocused } from "@react-navigation/native";
 
+
 const HomeScreen = () => {
   const isFocused = useIsFocused();
 
@@ -70,6 +71,9 @@ const HomeScreen = () => {
       console.log(error);
     }
   };
+
+    
+
 
   useEffect(() => {
     if (user) {

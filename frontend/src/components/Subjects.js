@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo} from "react";
+import React, { useState, useEffect, useMemo, useCallback} from "react";
 import {
   StyleSheet,
   Text,
@@ -17,9 +17,10 @@ function Subjects(data) {
   const navigation = useNavigation();
 
 
-  const progress = useMemo(() => {
-    return (data.solvedCount / data.allQuestions) * 100;
-  }, [ data.count, data.solvedCount]);
+  const getWidth = useCallback(() => {
+    return `${(data.solvedCount / data.allQuestions) * 100}%`;
+  }, [data.solvedCount, data.allQuestions]);
+  
 
 
 
@@ -62,7 +63,7 @@ function Subjects(data) {
               left: 0,
               height: 5,
               backgroundColor: "green",
-              width: `${progress}%`,
+              width: getWidth(),
             }}
           ></View>
         </View>
