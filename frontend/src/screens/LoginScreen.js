@@ -8,6 +8,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   TouchableOpacity,
+  ActivityIndicator
 } from "react-native";
 import COLORS from "../assets/colors/color";
 import Login from "../components/Login";
@@ -93,6 +94,7 @@ const LoginScreen = () => {
             onChangeText={(text) => setPassword(text)}
             secureTextEntry={true}
             autoCapitalize="none"
+            autoCorrect={false}
           />
         </View>
 
@@ -104,7 +106,27 @@ const LoginScreen = () => {
           onPress={() => signIn({ email, password })}
           disabled={loading}
         >
-            <LinearGradient
+            {loading ? (
+             <LinearGradient
+             colors={["#FF6E31", "#FF597B"]}
+             end = {{x: 0, y: 0}}
+             start = {{x: 1, y: 1}}        
+             style={{
+                 width: "100%",
+                 height: "100%",
+                 borderRadius: 30,
+                 alignItems: "center",
+                 justifyContent: "center",
+             }}
+
+         >
+             <ActivityIndicator
+              color={COLORS.white}
+              size="small"
+            />
+         </LinearGradient>
+            ) : (
+              <LinearGradient
                 colors={["#FF6E31", "#FF597B"]}
                 end = {{x: 0, y: 0}}
                 start = {{x: 1, y: 1}}        
@@ -119,6 +141,7 @@ const LoginScreen = () => {
             >
                 <Text style={styles.buttonText}>Giriş Yap</Text>
             </LinearGradient>
+            )}
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("RegisterScreen")}>
           <Text style={styles.loginText}>Hesabın yok mu ? Kayıt Ol</Text>

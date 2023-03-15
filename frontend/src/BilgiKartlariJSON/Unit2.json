@@ -1,0 +1,71 @@
+{
+    "unit": "Unit 1",
+    "cards": [
+      {
+        "title": "Türk Devletleri ve Toplulukları",
+        "content": [
+            "• Avar Hakanlığı (558-805): Asya Hun Devleti’nin yıkılmasından sonra Moğolistan’da kurulmuştur. İstanbul’u ilk kuşatan Türk devletidir.",
+            "• Karluklar (627-1212): İslamiyet’i kabul eden ilk Türk topluluğudur.",
+            "• Hazar Hakanlığı (630-968): Hazarlar, Museviliği benimseyen tek Türk topluluğudur.",
+            "• Türgişler (659-766): Emevilerle mücadele ettiler. Kendi adlarına para bastırmışlardır. ",
+            "• Tuna Bulgar Devleti (679-869): Hristiyanlığı kabul etmiştir.",
+            "• İtil (Volga) Bulgar Devleti (680- 1391): X. yüzyılın başlarında İslam’ı kabul etmişlerdir.",
+            "• Oğuzlar (766-1000):  X. yüzyılın sonlarına doğru İslamiyet’i kabul eden Oğuzlar, Büyük Selçuklu ve Osmanlı Devleti’ni kurmuşlardır. ",
+            "• Kırgızlar (840-1207) 840 yılında Uygur Devleti’ni yıktılar. XIII. Yüzyılda Moğolların, XIX. yüzyılda Rusların egemenliğine girdiler, 1991’de tekrar bağımsız bir devlet kurdular. Dünyanın en uzun destanı Manas destanı Kırgızlara aittir.",
+            "• Akhunlar (Eftalitler): Afganistan’ın kuzeyine yerleşmişlerdir. Göktürkler ve Sasanilerin baskısı sonucu yıkılmışlardır. "
+          ]
+      },
+      {
+        "title": "İslam Öncesi Türk Devletlerinin Kısa Sürede Yıkılmasının Temel Nedenleri",
+        "content": [
+            "• Ülkenin hakan ve ailesinin ortak malı anlayışının olması taht kavgaları, (Kut anlayışı)",
+            "• Doğu-Batı şeklinde ikiye ayrılarak yönetilmesi,",
+            "• Boyların birleşmesiyle oluşması,",
+            "• Merkeziyetçi yapının zayıf oluşu,"
+          ]
+      },
+  
+      {
+        "title": "Asya Hun Devleti (MÖ 220-MS 216) ",
+        "content": [
+            "• Önemli hükümdarları; Teoman ve Mete Han’dır. Tarihte bilinen ilk Türk devletidir.",
+            "• Kurucusu Teoman’dır (Tuman).",
+            "• Mete Han; ilk defa vatan millet sevgisini ortaya koymuş, ilk siyasi birliği sağlamış, onlu sistemi, Türk devlet geleneğini oluşturmuştur. "      
+          ]
+      },
+  
+      {
+        "title": "I. Kök Türk Devleti (552-630)",
+        "content": [
+            "• Türk adıyla kurulan ilk devlettir.",
+            "• Göktürk kurucusu Bumin Kağan’dır. Avarları yıkarak kuruldular. ",
+            "• Devlet doğu batı diye ikiye ayrılıp yönetildi. Doğuda Bumin Kağan, Batıda İstemi Yabgu. ",
+            "• İpek Yolu hâkimiyeti için İran’daki Sasanilerle işbirliği yaparak Akhunları yıktılar. ",
+            "• En parlak dönemi Mukan Kağan dönemidir.",
+            "• Göktürk Devleti taht kavgalarıyla Doğu Göktürk ve Batı Göktürk olmak üzere ikiye ayrıldı (582). Her iki devlete de Çinliler son verdi (630)."
+          ]
+      },
+  
+      {
+        "title": "II. Kök Türk Devleti (Kutluk) (682-742)",
+        "content": [
+            "• Bağımsızlık mücadelesi sonrası kurulmuştur. En önemli ayaklanma Kürşad ayaklanması. ",
+            "• Kurucusu Kutluk Kağan’dır.",
+            "• En parlak dönemi; Bilge Kağan, Kültigin ve Vezir Tonyukuk dönemidir. ",
+            "• Orhun Kitabeleri bu dönemde diktirilmiştir. ",
+            "• Basmil, Karluk ve Uygur Türkleri birleşerek II. Göktürk devletine son verdiler. ",
+            "• Orhun Abideleri; günümüzde Moğolistan’dadır. İlk okuyan 1893 yıllarında Danimarkalı W. Thomson‘dur."
+          ]
+      },
+      {
+        "title": "Uygur Devleti (744-840) ",
+        "content": [
+            "• 744 yılında Kutluk Bilge Kül Kağan, merkezi Karabalgasun olan Uygur Devleti’ni kurmuştur. ",
+            "• Bögü Kağan, Mani dinini kabul etmiştir.",
+            "• Yerleşik hayata geçen ilk Türk devletidir. ",
+            "• Zamanla Sarı (Kansu) Uygurları. Turfan Uygurları diye ikiye ayrıldılar.",
+            "• Uygurlar Çin’de geliştirilen matbaa tekniğini öğrenerek, kendilerine özgü bir matbaa ve Uygur Alfabesini kullandılar."
+          ]
+      }
+    ]
+  }

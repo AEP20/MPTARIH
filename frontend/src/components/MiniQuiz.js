@@ -8,13 +8,14 @@ import {
   TouchableOpacity,
   Modal,
   Animated,
-  ActivityIndicator
+  ActivityIndicator,
 } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import COLORS from "../assets/colors/color";
 import { UseAuthContext } from "../hooks/UseAuthContext";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
+import motivasyon from "../BilgiKartlariJSON/Motivasyon.json";
 
 export default function MiniQuiz({ route }) {
   const navigation = useNavigation();
@@ -25,12 +26,14 @@ export default function MiniQuiz({ route }) {
   const [correctlyAnsweredIds, setCorrectlyAnsweredIds] = useState([]);
   const [correctlyAnsweredThemas, setCorrectlyAnsweredThemas] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [mot, setMot] = useState(null);
+  const [favLoading, setFavLoading] = useState(false);
 
   const { user } = UseAuthContext();
 
   const fetchQuestions = async () => {
     console.log("user.email: " + user.email);
-    console.log("themaName: " + themaName)
+    console.log("themaName: " + themaName);
     try {
       const response = await fetch(
         `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
@@ -72,37 +75,34 @@ export default function MiniQuiz({ route }) {
   }, [user]);
 
   const Favorite = async (id) => {
-    console.log( "id !!! " + id)
-    console.log( "email !!! " + user.email)
+    setFavLoading(true);
     try {
-        const response = await fetch(
-            `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/favorite/${id}`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${user.token}`,
-
-                },
-                body: JSON.stringify({
-                    user_email: user.email,
-                    question_id : id,
-                }),
-            }
-            
-        );
-        console.log("response: " + response.status)
-
-
-        if (response.status === 200) {
-            setIsFavorite(true);
+      const response = await fetch(
+        `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/favorite/${id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify({
+            user_email: user.email,
+            question_id: id,
+          }),
         }
-        return response;
+      );
+      console.log("response: " + response.status);
+
+      if (response.status === 200) {
+        setIsFavorite(true);
+        setFavLoading(false);
+      }
+      return response;
     } catch (error) {
+        setFavLoading(false);
         console.log(error);
     }
-    };
-
+  };
 
   //correctlyAnsweredIds will be send to backend to save in the user object
   const correctlyAnswered = async (email, correctlyAnsweredIds) => {
@@ -127,7 +127,6 @@ export default function MiniQuiz({ route }) {
       console.log(error);
     }
   };
-  
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentOptionSelected, setCurrentOptionSelected] = useState(null);
@@ -136,7 +135,7 @@ export default function MiniQuiz({ route }) {
   const [score, setScore] = useState(0);
   const [showNextButton, setShowNextButton] = useState(false);
   const [showScoreModal, setShowScoreModal] = useState(false);
-  const [loading , setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const validateAnswer = (selectedOption) => {
     let correct_option = allQuestions[currentQuestionIndex]["correct_option"];
@@ -167,8 +166,8 @@ export default function MiniQuiz({ route }) {
       setShowScoreModal(true);
       correctlyAnswered(user.email, correctlyAnsweredIds);
     } else {
-        console.log("isFavorite: " + isFavorite)
-        setIsFavorite(false);
+      console.log("isFavorite: " + isFavorite);
+      setIsFavorite(false);
       setCorrectlyAnsweredIds(correctlyAnsweredIds);
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setCurrentOptionSelected(null);
@@ -176,7 +175,6 @@ export default function MiniQuiz({ route }) {
       setIsOptionsDisabled(false);
       setShowNextButton(false);
     }
-    
 
     Animated.timing(progress, {
       toValue: currentQuestionIndex + 1,
@@ -186,8 +184,8 @@ export default function MiniQuiz({ route }) {
   };
 
   const newQuiz = async () => {
-    console.log("user.email", user.email)
-    console.log("themaName", themaName)
+    console.log("user.email", user.email);
+    console.log("themaName", themaName);
     try {
       const response = await fetch(
         `https://us-central1-mptarih-3d6e1.cloudfunctions.net/api/miniQuiz/${user.email}/questions?thema=${themaName}`,
@@ -235,6 +233,29 @@ export default function MiniQuiz({ route }) {
     }
   };
 
+  useEffect(() => {
+    const readData = async () => {
+      try {
+        setMot(motivasyon);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    readData();
+  }, []);
+
+  const getRandomMot = () => {
+    if (!mot || mot.mots.length === 0) {
+      return null;
+    }
+
+    const randomIndex = Math.floor(Math.random() * mot.mots.length);
+    return mot.mots[randomIndex];
+  };
+
+  const randomMot = getRandomMot();
+
   const LoadingScreen = () => {
     return (
       <View
@@ -244,7 +265,15 @@ export default function MiniQuiz({ route }) {
           alignItems: "center",
         }}
       >
-        <ActivityIndicator size="large" color={COLORS.primary} />
+        <ActivityIndicator size="small" color={COLORS.primary} style={{paddingBottom:20}} />
+        <View>
+          {randomMot && (
+            <View>
+              <Text style={{marginTop:10, fontSize:18}}>{randomMot.content}</Text>
+              <Text style={{marginTop:15, fontSize:16, fontWeight:"bold"}}>{randomMot.referrer}</Text>
+            </View>
+          )}
+        </View>
       </View>
     );
   };
@@ -481,21 +510,30 @@ export default function MiniQuiz({ route }) {
           onPress={() => navigation.goBack()}
         />
 
-        <MaterialCommunityIcons
-            onPress={() => Favorite(allQuestions[currentQuestionIndex].id)}
-            name={isFavorite ? "heart" : "heart-outline"}
-            size = {26}
-            color = {color1}
-            style = {{
-                position: "absolute",
-                top: 16,
-                right: 85,
+        {favLoading ? (
+          <ActivityIndicator
+            size="small"
+            color={color1}
+            style={{
+              position: "absolute",
+              top: 16,
+              right: 85,
             }}
+          />
+        ) : (
+          <MaterialCommunityIcons
+          onPress={() => Favorite(allQuestions[currentQuestionIndex].id)}
+          name={isFavorite ? "heart" : "heart-outline"}
+          size={26}
+          color={color1}
+          style={{
+            position: "absolute",
+            top: 16,
+            right: 85,
+          }}
         />
-        {/* ///// */}
+        )}
 
-
-        {/* Question Counter */}
         <View
           style={{
             flexDirection: "row",
@@ -533,11 +571,17 @@ export default function MiniQuiz({ route }) {
         {/* ProgressBar */}
         {renderProgressBar()}
 
-        {/* Question */}
-        {renderQuestion()}
+        {loading ? (
+          <LoadingScreen />
+        ) : (
+          <>
+            {/* Question */}
+            {renderQuestion()}
 
-        {/* Options */}
-        {renderOptions()}
+            {/* Options */}
+            {renderOptions()}
+          </>
+        )}
 
         {/* Next Button */}
         {renderNextButton()}

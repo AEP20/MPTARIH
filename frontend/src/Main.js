@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Button, Pressable } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -23,15 +23,36 @@ import Settings from "./screens/Settings";
 import { useNavigation } from "@react-navigation/native";
 import Cards from "./components/Cards";
 import { DrawerActions } from '@react-navigation/native';
-import { useState } from "react";
-import DropDownPicker from "react-native-dropdown-picker";
-
+import NetInfo from '@react-native-community/netinfo';
+import { Alert } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 export default function Main() {
   const { user } = UseAuthContext();
+  const [isConnected, setIsConnected] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener(state => {
+      setIsConnected(state.isConnected);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isConnected) {
+      Alert.alert(
+        'Bağlantı Hatası',
+        'İnternet bağlantınızı kontrol edin ve tekrar deneyin.',
+        [{ text: 'Tamam' }],
+        { cancelable: false }
+      );
+    }
+  }, [isConnected]);
 
   return (
     <NavigationContainer>
@@ -158,7 +179,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   drawerHeaderText: {
-    fontSize: 14,
+    marginTop:5,
+    fontSize: 13,
     fontWeight: "bold",
     color: COLORS.black75,
   },

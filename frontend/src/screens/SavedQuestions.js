@@ -182,7 +182,6 @@ const navbarHeight = height * 0.14;
             borderRadius:0,
             width:"100%",
             borderWidth: 0,
-            marginBottom: 10,
           }}
           textStyle={{
             fontSize: 14,
