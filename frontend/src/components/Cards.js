@@ -19,6 +19,15 @@ export default function Cards({ route }) {
     Konu3: require("../BilgiKartlariJSON/Unit3.json"),
     Konu4: require("../BilgiKartlariJSON/Unit4.json"),
     Konu5: require("../BilgiKartlariJSON/Unit5.json"),
+    Konu6: require("../BilgiKartlariJSON/Unit6.json"),
+    Konu7: require("../BilgiKartlariJSON/Unit7.json"),
+    Konu8: require("../BilgiKartlariJSON/Unit8.json"),
+    Konu9: require("../BilgiKartlariJSON/Unit9.json"),
+    Konu10: require("../BilgiKartlariJSON/Unit10.json"),
+    Konu11: require("../BilgiKartlariJSON/Unit11.json"),
+    Konu12: require("../BilgiKartlariJSON/Unit12.json"),
+    Konu13: require("../BilgiKartlariJSON/Unit13.json"),
+    Konu14: require("../BilgiKartlariJSON/Unit14.json"),
   };
 
   const { themaName } = route.params;
@@ -126,7 +135,7 @@ export default function Cards({ route }) {
                 display: "flex",
               }}
             >
-              <Text style={{ fontWeight: "bold", fontSize: height / 45 }}>
+              <Text style={{ fontWeight: "bold", fontSize: height / 47 }}>
                 {data.cards[currentIndex].title}
               </Text>
               {data.cards[currentIndex].content.map((item, index) => (
