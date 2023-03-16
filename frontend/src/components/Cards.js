@@ -28,6 +28,8 @@ export default function Cards({ route }) {
     Konu12: require("../BilgiKartlariJSON/Unit12.json"),
     Konu13: require("../BilgiKartlariJSON/Unit13.json"),
     Konu14: require("../BilgiKartlariJSON/Unit14.json"),
+    Konu15: require("../BilgiKartlariJSON/Unit15.json"),
+    Konu16: require("../BilgiKartlariJSON/Unit16.json"),
   };
 
   const { themaName } = route.params;

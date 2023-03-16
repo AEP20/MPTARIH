@@ -264,7 +264,7 @@ const HomeScreen = () => {
           solvedCount={user ? solvedCount[15] : 0}
           allQuestions={user ? count[15] : 0}
         />
-
+{/* 
         <Subjects
           title="Karışık Deneme"
           themaName="Konu16"
@@ -274,7 +274,7 @@ const HomeScreen = () => {
           end={{ x: 1, y: 0 }}
           solvedCount={user ? solvedCount[16] : 0}
           allQuestions={user ? count[16] : 0}
-        />
+        /> */}
       </ScrollView>
       
     </View>
