@@ -348,7 +348,7 @@ export default function MiniQuiz({ route }) {
               </Text>
 
               {/* Show Check Or Cross Icon based on correct answer*/}
-              {option == correctOption ? (
+              {/* {option == correctOption ? (
                 <View
                   style={{
                     width: 26,
@@ -389,7 +389,7 @@ export default function MiniQuiz({ route }) {
                     }}
                   />
                 </View>
-              ) : null}
+              ) : null} */}
             </TouchableOpacity>
           ))}
       </View>
@@ -399,6 +399,23 @@ export default function MiniQuiz({ route }) {
     if (showNextButton) {
       return (
         <TouchableOpacity
+          onPress={handleNext}
+          activeOpacity={1}
+          style={{
+            flex:1,
+            marginTop: 0,
+            height: "100%",
+            width: "100%",
+            position: "absolute",
+            bottom: 0,
+            left: 15,
+            borderRadius: 0,
+            display: "flex",
+            justifyContent: "center",
+            alignItems:"center"
+          }}
+        >
+          <View
           onPress={handleNext}
           style={{
             marginTop: 0,
@@ -413,6 +430,7 @@ export default function MiniQuiz({ route }) {
             justifyContent: "center",
           }}
         >
+
           <Text
             style={{
               color: COLORS.white,
@@ -434,6 +452,8 @@ export default function MiniQuiz({ route }) {
               right: 15,
             }}
           />
+        </View>
+
         </TouchableOpacity>
       );
     } else {

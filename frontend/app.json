@@ -20,11 +20,11 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.MP.Tarih",
-      "buildNumber": "9"
+      "buildNumber": "10"
     },
     "android": {
       "package": "com.MP.Tarih",
-      "versionCode": 8
+      "versionCode": 10
     },
     "extra": {
       "eas": {

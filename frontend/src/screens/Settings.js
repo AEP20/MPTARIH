@@ -14,7 +14,6 @@ import COLORS from "../assets/colors/color";
 import { MaterialIcons } from "@expo/vector-icons";
 import { UseAuthContext } from "../hooks/UseAuthContext";
 import * as Sharing from "expo-sharing";
-import { Share } from "expo";
 
 function Settings() {
   const navigation = useNavigation();
@@ -24,21 +23,6 @@ function Settings() {
     Linking.openURL("mailto:ahmetemreparmaksiz@gmail.com?subject=Help/Support");
   };
 
-  const handleInvitePress = async () => {
-    try {
-      const result = await Share.share({
-        message: "Check out this cool app I found! https://example.com",
-      });
-
-      if (result.action === Share.sharedAction) {
-        console.log("Invitation sent successfully");
-      } else {
-        console.log("Invitation canceled");
-      }
-    } catch (error) {
-      console.log("Error sharing:", error);
-    }
-  };
 
   const handleFeedbackPress = () => {
     const handleFeedbackPress = () => {
@@ -83,10 +67,6 @@ function Settings() {
             Yazarla / Geliştiriciyle İletişime Geç
           </Text>
           <MaterialIcons name="help" size={24} color="#333" />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleInvitePress}>
-          <Text style={styles.buttonText}>Arkadaşlarını Davet Et</Text>
-          <MaterialIcons name="person-add" size={24} color="#333" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={handleFeedbackPress}>
           <Text style={styles.buttonText}>Geri Bildirimde Bulunun</Text>
