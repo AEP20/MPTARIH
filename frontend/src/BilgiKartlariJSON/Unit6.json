@@ -2,12 +2,18 @@
   "unit": "Unit 6",
   "cards": [
     {
-      "title": "XIII. YY. Sonlarında Anadolu'nun Durumu ",
+      "title": "XIII. YY. Sonlarında Anadolu'nun Durumu -1",
       "content": [
         "Türkiye Selçuklu Devleti:  ",
         "1243 Kösedağ Savaşı’nda Moğollara yenilerek dağılma sürecine girdiler. Anadolu’da siyasi birlik bozuldu. Anadolu’da ikinci beylikler dönemi başladı.",
         "Doğu Roma İmparatorluğu (Bizans):  ",
-        "• Sınırları Yunanistan, Trakya, Makedonya ve Ege Adalarının bir kısmından ibaretti. Taht kavgaları ve Haçlı Seferleri’nin etkisiyle zayıftı. Trabzon Rum İmparatorluğu: Doğu Karadeniz IV. Haçlı Seferi sonrası kurulmuştu. ",
+        "• Sınırları Yunanistan, Trakya, Makedonya ve Ege Adalarının bir kısmından ibaretti. Taht kavgaları ve Haçlı Seferleri’nin etkisiyle zayıftı. Trabzon Rum İmparatorluğu: Doğu Karadeniz IV. Haçlı Seferi sonrası kurulmuştu. "
+      ]
+    },
+
+    {
+      "title": "XIII. YY. Sonlarında Anadolu'nun Durumu -2",
+      "content": [
         "İlhanlı Devleti:  ",
         "• İran ve çevresindeki Moğol devletidir. Anadolu’yu Kösedağ Savaşı sonrası vergiye bağladılar.  ",
         "Memlûk Devleti:  ",
@@ -20,7 +26,7 @@
     {
       "title": "XIII. YY. Sonlarında Balkanlar ve Avrupa ",
       "content": [
-        "•  Bizans, Sırp ve Bulgarlarla siyasi mücadele içerisindeydi. Balkanlarda Sırp, Bulgar, Arnavut Krallıkları, Eflâk ve Boğdan voyvodalıkları ile Bosna Prensliği bulunuyordu.",
+        "• Bizans, Sırp ve Bulgarlarla siyasi mücadele içerisindeydi. Balkanlarda Sırp, Bulgar, Arnavut Krallıkları, Eflâk ve Boğdan voyvodalıkları ile Bosna Prensliği bulunuyordu.",
         "• Feodal yapıya sahip Hristiyan birçok devlet bulunuyordu. Bunlardan merkezi Viyana olan Kutsal Roma Germen İmparatorluğu Avrupa’nın en önemli siyasi gücüydü.  ",
         "• İtalya’da Napoli Krallığı, Venedik ve Ceneviz cumhuriyetleri ile Papalık yer almaktaydı.  ",
         "• Anadolu’daki ilk medrese olan Yağıbasan Medresesi Danişmentliler yaptırmıştır.",
@@ -62,9 +68,13 @@
         "• Bizans ile Maltepe (Palekanon) Savaşı (1329) kazanıldı.",
         "• Karesioğulları Beyliği alındı (1345). Böylece Anadolu Türk birliğini sağlama yolunda ilk adım atılmıştır. ",
         "• Rumeli'ye Geçiş (1353): Bizans İmparatoru Kantakuzen, yardımlara karşılık Çimpe kalesini Osmanlı Devleti’ne verdi. ",
-        "! İskân Politikasında amaç: Fethedilen yerlerde kalıcılık, Türkleştirmek-İslamlaştırmak, fetihleri hızlandırmaktır. ",
-        "",
-        "Orhan Bey Devrinde Devlet Teşkilatındaki Gelişmeler ",
+        "! İskân Politikasında amaç: Fethedilen yerlerde kalıcılık, Türkleştirmek-İslamlaştırmak, fetihleri hızlandırmaktır. "
+      ]
+    },
+
+    {
+      "title": "Orhan Bey Dönemiki Teşkilatlanma Çalışmaları",
+      "content": [
         "• İlk divan teşkilatı ve ilk vezirlik makamı kuruldu. İlk vezir Alaaddin Ali Paşa’dır. ",
         "• Yaya ve Müsellem adıyla ilk düzenli ordular oluşturuldu. ",
         "• İznik’te ilk Osmanlı Medresesi kuruldu (1331). İlk müderris Kayserili Davud. ",
@@ -92,9 +102,13 @@
         "• Sırpsındığı Savaşı kazanıldı (1364). Osmanlıların Haçlılar ile yaptığı ilk savaştır. Zaferden sonra Edirne başkent yapılmıştır. ",
         "• Haçlılara karşı Çirmen Savaşı (1371) kazanıldı. ",
         "• Ploşnik yenilgisi (1388). ",
-        "• I. Kosova Savaşı (1389): Haçlılara karşı zafer kazanıldı ancak, I. Murat şehit oldu. ",
-        "",
-        "I. Murat Dönemindeki Teşkilatlanma: ",
+        "• I. Kosova Savaşı (1389): Haçlılara karşı zafer kazanıldı ancak, I. Murat şehit oldu. "
+     
+      ]
+    },
+    {
+      "title": "I.Murat Dönemi Teşkilatlanma Çalışmaları",
+      "content": [
         "• Kapıkulu Ocakları kuruldu.  ",
         "• Defterdarlık, Kazaskerlik ve Veziriazamlık makamları oluşturuldu. İlk Veziriazam Lala Şahin Paşa’dır. ",
         "• Veraset sisteminde, 'Devlet hükümdar ve çocuklarının ortak malı' anlayışına geçildi. ",

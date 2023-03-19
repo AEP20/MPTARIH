@@ -6,7 +6,6 @@ import {
   FlatList,
   TouchableOpacity,
   ActivityIndicator,
-  Dimensions
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -121,6 +120,8 @@ function SavedQuestions({route}) {
       <View
         style={{
           flex: 1,
+          height: "100%",
+          width: "100%",
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -160,8 +161,6 @@ function SavedQuestions({route}) {
     }
   };
 
-  const { height, width } = Dimensions.get('window');
-const navbarHeight = height * 0.14;
 
   return (
     <View

@@ -1,14 +1,19 @@
 {
-    "unit": "Unit 1",
+    "unit": "Unit 2",
     "cards": [
       {
-        "title": "Türk Devletleri ve Toplulukları",
+        "title": "Türk Devletleri ve Toplulukları -1",
         "content": [
             "• Avar Hakanlığı (558-805): Asya Hun Devleti’nin yıkılmasından sonra Moğolistan’da kurulmuştur. İstanbul’u ilk kuşatan Türk devletidir.",
             "• Karluklar (627-1212): İslamiyet’i kabul eden ilk Türk topluluğudur.",
             "• Hazar Hakanlığı (630-968): Hazarlar, Museviliği benimseyen tek Türk topluluğudur.",
             "• Türgişler (659-766): Emevilerle mücadele ettiler. Kendi adlarına para bastırmışlardır. ",
-            "• Tuna Bulgar Devleti (679-869): Hristiyanlığı kabul etmiştir.",
+            "• Tuna Bulgar Devleti (679-869): Hristiyanlığı kabul etmiştir."
+          ]
+      },
+      {
+        "title": "Türk Devletleri ve Toplulukları -2",
+        "content": [
             "• İtil (Volga) Bulgar Devleti (680- 1391): X. yüzyılın başlarında İslam’ı kabul etmişlerdir.",
             "• Oğuzlar (766-1000):  X. yüzyılın sonlarına doğru İslamiyet’i kabul eden Oğuzlar, Büyük Selçuklu ve Osmanlı Devleti’ni kurmuşlardır. ",
             "• Kırgızlar (840-1207) 840 yılında Uygur Devleti’ni yıktılar. XIII. Yüzyılda Moğolların, XIX. yüzyılda Rusların egemenliğine girdiler, 1991’de tekrar bağımsız bir devlet kurdular. Dünyanın en uzun destanı Manas destanı Kırgızlara aittir.",

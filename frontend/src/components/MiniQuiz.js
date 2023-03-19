@@ -501,6 +501,29 @@ export default function MiniQuiz({ route }) {
     );
   };
 
+  const noQuestions = () => {
+    console.log("no questions")
+    return (
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 18,
+            color: COLORS.black,
+            textAlign: "center",
+          }}
+        >
+          Bu kategorideki tüm soruları cevapladınız, diğer kategorilere göz atın.
+        </Text>
+      </View>
+    );
+  }
+
   return (
     <SafeAreaView
       style={{
@@ -526,6 +549,7 @@ export default function MiniQuiz({ route }) {
             position: "absolute",
             top: 10,
             left: 20,
+            zIndex: 10,
           }}
           onPress={() => navigation.goBack()}
         />
@@ -594,13 +618,14 @@ export default function MiniQuiz({ route }) {
         {loading ? (
           <LoadingScreen />
         ) : (
-          <>
-            {/* Question */}
-            {renderQuestion()}
-
-            {/* Options */}
-            {renderOptions()}
-          </>
+            allQuestions.length === 0 ? (
+              noQuestions()
+            ) : (
+              <>
+                {renderQuestion()}
+                {renderOptions()}
+              </>
+            )
         )}
 
         {/* Next Button */}

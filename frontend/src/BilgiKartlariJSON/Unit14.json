@@ -2,24 +2,35 @@
   "unit": "Unit 14",
   "cards": [
     {
-      "title": "Azınlıkların Kurduğu Cemiyetler",
+      "title": "Azınlıkların Kurduğu Cemiyetler -1",
       "content": [
         "• Mondros Ateşkes Antlaşması sonrasında Osmanlı Devleti’nin fiilen yıkıldığı bir dönemde devlet kurma amacıyla veya eski devletlerini canlandırmak için azınlıklar tarafından cemiyetler kurulmuştur. Bazıları: ",
         "• Mavri Mira Cemiyeti: Bizans’ı yeniden canlandırmayı, Batı Anadolu ve Trakya’yı Yunanistan’a bağlamak amacıyla kuruldu (Megali İdea- Büyük İdeal).  ",
         "• Pontus Rum Cemiyeti: Batum’dan Sinop’a kadar uzanan bir Rum devleti kurmak için amaçlanmıştır. ",
-        "• Kardos Cemiyeti: Pontus Cemiyetine yardımcı oluyordu. ",
+        "• Kardos Cemiyeti: Pontus Cemiyetine yardımcı oluyordu. "
+      ]
+    },
+    {
+      "title": "Azınlıkların Kurduğu Cemiyetler -2",
+      "content": [
         "• Etnik-i Eterya Cemiyeti: Rumlar tarafından, I. Dünya Savaşı’ndan sonra Bizans Devleti’ni canlandırmak için kuruldu. ",
         "• Hınçak ve Taşnak-Sütyun Cemiyetleri: Doğu Anadolu, Çukurova toprakları ve Karadeniz bölgesinin bir kısmını Ermenistan’a katmak için kuruldu. ",
         "• Makabi-Alyans İsrailit Cemiyetleri: Kudüs ve çevresinde Yahudi devleti kurmak için çalışmışlardır. "
       ]
     },
     {
-      "title": "Milli Varlığa Düşman Cemiyetler",
+      "title": "Milli Varlığa Düşman Cemiyetler -1",
       "content": [
         "• Mondros Ateşkes Antlaşması sonrasında İtilaf Devletlerinin işgalleriyle başlayan kötü durumdan; padişaha ve halifeye bağlı kalarak veya güçlü bir ülkenin mandasına girerek kurtulabileceğini savunan Müslümanların kurduğu cemiyetlerdir. Bazıları; ",
         "• Sulh ve Selamet-i Osmaniye Cemiyeti: Kurtuluşun padişahın emirlerine bağlı kalmakla mümkün olacağını savunmuştur. ",
         "• Teali İslam Cemiyeti: Kurtuluşun halifenin emirlerine ve İslâm’ın prensiplerine uymakla mümkün olacağını savunmuştur. ",
-        "• İngiliz Muhipleri Cemiyeti: İngiliz mandasını savunmuşlardır. Cemiyet Damat Ferit hükümeti tarafından da desteklenmiştir. ",
+        "• İngiliz Muhipleri Cemiyeti: İngiliz mandasını savunmuşlardır. Cemiyet Damat Ferit hükümeti tarafından da desteklenmiştir. "
+      ]
+    },
+
+    {
+      "title": "Milli Varlığa Düşman Cemiyetler -2",
+      "content": [
         "• Wilson Prensipleri Cemiyeti: Kurtuluşun ABD mandasına girmekle mümkün olacağını savunanların kurduğu bir cemiyettir. ",
         "• Kürt Teali Cemiyeti: Wilson ilkelerine dayanarak bir Kürt devleti kurmak için çalışmışlardır.  ",
         "• Hürriyet ve İtilaf Fırkası: Damat Ferit Paşa’nın partisidir. "
@@ -71,7 +82,6 @@
       "title": "Amasya Genelgesi / Tamimi (22 Haziran 1919)",
       "content": [
         "• Amasya Genelgesi; Mustafa Kemal, Refet Bele, Ali Fuat Cebesoy, Rauf Orbay, Kazım Karabekir (Erzurum’da) tarafından hazırlanan genelgedir. ",
-        "• Genelgenin Maddeleri: ",
         "-  Vatanın bütünlüğü ve milletin bağımsızlığı tehlikededir (Milli Mücadele’nin gereği ortaya konmuştur). ",
         "-  İstanbul Hükümeti, üzerine almış olduğu sorumluluğu yerine getirmemektedir. Bu durum milletimizi yok saymıştır (ilk defa İstanbul hükümetine tepki gösterilmiştir). ",
         "-  Milletin istiklalini yine milletin azim ve kararı kurtaracaktır (Milli egemenlikten ilk kez bahsedilmiştir). ",
@@ -208,9 +218,8 @@
     },
 
     {
-      "title": "Batı Cephesi -1",
+      "title": "Batı Cephesi - Birinci İnönü Savaşı",
       "content": [
-        "Birinci İnönü Savaşı (6-10 Ocak 1921) ",
         "• Yunanlılar, Çerkez Ethem’in isyanından faydalanmak, TBMM’ye Sevr Antlaşmasını kabul ettirmek istiyordu. ",
         "• Birinci İnönü Zaferi’yle;  ",
         " - Düzenli ordu ilk zaferini kazandı. ",
@@ -226,9 +235,8 @@
     },
 
     {
-      "title": "Batı Cephesi -2",
+      "title": "Batı Cephesi - Eskisehir-Kütahya Muharebeleri",
       "content": [
-        "Eskişehir-Kütahya Muharebeleri (10-24 Temmuz 1921) ",
         "• Yunanlılar karşısında Türk ordusu tutunamayınca, daha fazla kayıp vermek istemeyen Mustafa Kemal, İsmet Paşa’dan Türk ordusunu Sakarya’nın doğusuna çekmesini istedi. ",
         "• Düzenli ordu, Milli Mücadele’de ilk ve tek mağlubiyetini almıştır. ",
         "• Fransızlar barış görüşmelerini, İtalyanlar geri çekilmeyi askıya aldı. ",
@@ -240,9 +248,8 @@
     },
 
     {
-      "title": "Batı Cephesi -3",
+      "title": "Batı Cephesi - Sakarya Meydan Savaşı",
       "content": [
-        "Sakarya Meydan Savaşı  (23 Ağustos-12 Eylül 1921) ",
         "• Mustafa Kemal’in “Hattı müdafaa yoktur. Sathı müdafaa vardır. O satıh tüm vatandır. Vatanın her karış toprağı şehit kanı ile ıslanmadıkça terk olunamaz!” sözü Türk askerinin savunma azmini artırmıştır.  ",
         "• Sakarya Meydan Savaşı’nın önemi:",
         "- Türklerin II. Viyana bozgunundan (1683) beri devam eden geri çekilişi sona erdi. ",
@@ -256,25 +263,8 @@
     },
 
     {
-      "title": "Batı Cephesi -3",
+      "title": "Batı Cephesi - Başkomutan Meydan Muharebesi ve Büyük Taarruz",
       "content": [
-        "Sakarya Meydan Savaşı  (23 Ağustos-12 Eylül 1921) ",
-        "• Mustafa Kemal’in “Hattı müdafaa yoktur. Sathı müdafaa vardır. O satıh tüm vatandır. Vatanın her karış toprağı şehit kanı ile ıslanmadıkça terk olunamaz!” sözü Türk askerinin savunma azmini artırmıştır.  ",
-        "• Sakarya Meydan Savaşı’nın önemi:",
-        "- Türklerin II. Viyana bozgunundan (1683) beri devam eden geri çekilişi sona erdi. ",
-        "- İtalyanlar Anadolu’yu terk etti. ",
-        "- Fransa ile TBMM arasında Ankara Antlaşması imzalandı. ",
-        "- İngiltere ile 22 Ekim 1921’de esir mübadelesi antlaşması imzaladı. ",
-        "- Azerbaycan, Gürcistan, Ermenistan ile TBMM arasında Kars Antlaşması imzalandı (13 Ekim 1921).   ",
-        "- 2 Ocak 1922’de TBMM ile Ukrayna arasında dostluk antlaşması imzalandı. ",
-        "- Mustafa Kemal’e Gazilik unvanı ve Mareşallik rütbesi verildi (19 Eylül 1921). "
-      ]
-    },
-
-    {
-      "title": "Batı Cephesi -4",
-      "content": [
-        "Başkomutan Meydan Muharebesi ve Büyük Taarruz (26 Ağustos 1922) ",
         "• Türk ordusu, 26 Ağustos 1922’de Yunan ordusu ile Türk ordusu arasında Başkomutan Meydan Muharebesi oldu. 30 Ağustos 1922’de ise büyük taarruz başladı. ",
         "• Mustafa Kemal, “Ordular ilk hedefiniz Akdeniz’dir İleri!” emrini verdi. ",
         "•  9 Eylül’de Yunanlılar İzmir’den, 18 Eylül’de de tüm Batı Anadolu’dan çıkarıldı.  ",

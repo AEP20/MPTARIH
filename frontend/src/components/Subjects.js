@@ -62,7 +62,7 @@ function Subjects(data) {
               bottom: 0,
               left: 0,
               height: 5,
-              backgroundColor: "green",
+              backgroundColor: getWidth() === "100%" ? data.colors[1] : "green",
               width: getWidth(),
             }}
           ></View>
