@@ -130,7 +130,7 @@ function SavedQuestions({route}) {
           style={{
             fontSize: 16,
             color: COLORS.black75,
-            marginTop: 20,
+            marginTop: 220,
           }}
         >
           Favori Sorularınız Bulunmamaktadır.

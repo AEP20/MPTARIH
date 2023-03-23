@@ -404,7 +404,7 @@ export default function MiniQuiz({ route }) {
           style={{
             flex:1,
             marginTop: 0,
-            height: "100%",
+            height: "90%",
             width: "100%",
             position: "absolute",
             bottom: 0,
@@ -412,7 +412,7 @@ export default function MiniQuiz({ route }) {
             borderRadius: 0,
             display: "flex",
             justifyContent: "center",
-            alignItems:"center"
+            alignItems:"center",
           }}
         >
           <View
@@ -428,6 +428,7 @@ export default function MiniQuiz({ route }) {
             borderRadius: 30,
             display: "flex",
             justifyContent: "center",
+            
           }}
         >
 

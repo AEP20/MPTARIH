@@ -51,7 +51,7 @@ function Subjects(data) {
               left: 0,
               height: 5,
               backgroundColor: data.colors[0],
-              opacity: 0.1,
+              opacity: getWidth() === "100%" ? 1 : 0.1,
 
               width:"100%"
             }}
@@ -62,7 +62,7 @@ function Subjects(data) {
               bottom: 0,
               left: 0,
               height: 5,
-              backgroundColor: getWidth() === "100%" ? data.colors[1] : "green",
+              backgroundColor: "green",
               width: getWidth(),
             }}
           ></View>

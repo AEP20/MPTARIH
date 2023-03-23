@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Button, Pressable } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./screens/LoginScreen";
@@ -70,6 +70,17 @@ export default function Main() {
     </NavigationContainer>
   );
 }
+
+const Logo = () => (
+  <View style={{ marginRight: 24 }}>
+    <Image
+      source={require('./assets/Mptarih.png')}
+      style={{ width: 36, height: 36 }}
+      resizeMode="contain"
+    />
+  </View>
+);
+
 function DrawerScreen() {
 
   const navigation = useNavigation();
@@ -82,16 +93,19 @@ function DrawerScreen() {
         headerShown: true,
         headerTitle: "", 
         headerTintColor: COLORS.black75,
-        headerLeft: () =>
-     <Pressable style={{paddingLeft:24}} onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
-          <MaterialCommunityIcons size={30} name="menu"  />
-      </Pressable >
-      
+        headerLeft: () => (
+          <Pressable style={{paddingLeft:24}} onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
+            <MaterialCommunityIcons size={30} name="menu"  />
+          </Pressable >
+        ),
+        headerRight: () => <Logo />,
       }}
+      
       drawerContent={(props) => <DrawerContent {...props} />}
+      
     >
       <Drawer.Screen name="Ana Menü" component={HomeScreen} />
-      <Drawer.Screen name="Hakkımızda" component={AboutScreen} />
+      {/* <Drawer.Screen name="Hakkımızda" component={AboutScreen} /> */}
       <Drawer.Screen name="Kaydedilen Sorular" component={SavedQuestions} />
       {/* <Drawer.Screen name="Kaydedilen Kartlar" component={SavedCards} /> */}
       <Drawer.Screen name="Ayarlar" component={Settings} />

@@ -91,7 +91,7 @@ const RegisterScreen = ({ navigation }) => {
           </View>
 
           <View style={styles.sub_container}>
-            <Text style={styles.input_title}>Password</Text>
+            <Text style={styles.input_title}>Şifre</Text>
             <TextInput
               style={styles.input}
               value={password}

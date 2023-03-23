@@ -16,6 +16,9 @@ const {
 } = require("../controllers/quizController");
 const { requireAuth } = require("../middleware/requireAuth");
 
+router.use(requireAuth);
+
+
 router.post("/", addQuestion);
 router.get("/", getAllQuestions);
 router.delete("/:id", deleteQuestion);
@@ -23,7 +26,6 @@ router.get("/count", CounstofQuestions);
 router.put("/update/:id", updateIsPremium)
 router.get("/detailedCount", detailedCount)
 
-router.use(requireAuth);
 
 
 
