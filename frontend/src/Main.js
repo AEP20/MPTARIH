@@ -157,8 +157,6 @@ function DrawerContent(props) {
             lineHeight: 23,
           }}
         >
-          <Text style={{ fontWeight: "bold" }}>İçerik Yazarı:</Text> Mehmet
-          Parmaksız{"\n"}
           <Text style={{ fontWeight: "bold" }}>Geliştirici:</Text> Ahmet Emre
           Parmaksız
         </Text>
