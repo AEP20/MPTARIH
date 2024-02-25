@@ -13,3 +13,11 @@ The admin panel was built using React. Designed exclusively for admin users, it 
 # Backend
 
 The backend part of this project was developed using Node.js and MongoDB. The backend API includes methods for filtering and randomizing questions based on topic titles for mobile app users, enabling users to add questions to favorites, storing questions prepared by admin users in the database, as well as controllers for user authorization and middleware for JWT verification. During development, the project was deployed to Firebase, but it is currently inactive.
+
+# Key Features of the App
+
+- User Progress Tracking: Save your progress by logging in, allowing you to resume from where you left off.
+- Topic-Specific Questions: Access a curated set of questions tailored to each of the 16 units, with 50 questions for each unit.
+- Topic Explanatory Cards: Explore topic-specific explanatory cards designed to supplement your understanding (explanatory cards are hidden in GitHub because of the copyright)
+- Progress Monitoring: Keep track of your progress unit by unit, helping you stay organized and focused.
+- Favorite Questions: Mark questions as favorites and filter them by topic for easy reference.
